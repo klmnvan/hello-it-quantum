@@ -6,5 +6,66 @@
 			 x:Class="HelloItQuantum.Views.PlaySectionView"
 			 x:DataType="vm:MainWindowViewModel"
 			 xmlns:vm="using:HelloItQuantum.ViewModels">
-	Welcome to PlaySectionView!
+
+	<!--<UserControl.Styles>
+		<Style Selector="TextBox">
+			<Setter Property="FontFamily" Value="{StaticResource BankGothicMediumRUS}" />
+			<Setter Property="Foreground" Value="#7471E8" />
+			<Setter Property="CornerRadius" Value="6" />
+			<Setter Property="BorderThickness" Value="0" />
+		</Style>
+	</UserControl.Styles>-->
+
+	<ScrollViewer HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+		<StackPanel HorizontalAlignment="Stretch" Orientation="Vertical" VerticalAlignment="Stretch" Background="Beige">
+
+			<StackPanel Orientation="Horizontal">
+				<TextBlock Text="Узнай программирование"></TextBlock>
+			</StackPanel>
+
+			<!--<Grid ColumnDefinitions="*,*,*" RowDefinitions="*" VerticalAlignment="Stretch" 
+				  Margin="50 40 50 0">
+				<Button Grid.Column="0" Grid.Row="0" HorizontalAlignment="Stretch" Command="">
+					<Border CornerRadius="10" Background="#0BA5CF" BoxShadow="0 5 #0534B5" 
+							VerticalAlignment="Stretch" Padding="20">
+						<TextBlock Text="Комманды" FontSize="20" TextAlignment="Center"/>
+					</Border>
+				</Button>
+				<Button Grid.Column="1" Grid.Row="0" HorizontalAlignment="Stretch" Command="">
+					<Border CornerRadius="10" Background="#F26527" BoxShadow="0 5 #973F19" 
+							VerticalAlignment="Stretch" Padding="20">
+						<TextBlock Text="Лабиринт" FontSize="20" TextAlignment="Center"/>
+					</Border>
+				</Button>
+				<Button Grid.Column="2" Grid.Row="0" HorizontalAlignment="Stretch" Command="">
+					<Border CornerRadius="10" Background="#00A659" BoxShadow="0 5 #006838" 
+							VerticalAlignment="Stretch" Padding="20">
+						<TextBlock Text="Создай друга" FontSize="20" TextAlignment="Center"/>
+					</Border>
+				</Button>
+			</Grid>-->
+
+			<Grid ColumnDefinitions="*,*,*" RowDefinitions="*" VerticalAlignment="Stretch" Margin="50 40 50 0">
+				<Border Grid.Column="0" Grid.Row="0" CornerRadius="10" Background="#0BA5CF" BoxShadow="0 5 #0534B5" VerticalAlignment="Stretch">
+					<Button HorizontalAlignment="Stretch" VerticalAlignment="Stretch" VerticalContentAlignment="Center" Command="{Binding PlaySectionVM.GoCommands}" CornerRadius="10">
+						<TextBlock Text="Комманды" FontSize="20" TextAlignment="Center"/>
+					</Button>
+				</Border>
+
+				<Border Grid.Column="1" Grid.Row="0" CornerRadius="10" Background="#F26527" BoxShadow="0 5 #973F19" VerticalAlignment="Stretch">
+					<Button HorizontalAlignment="Stretch" VerticalAlignment="Stretch" VerticalContentAlignment="Center" Command="{Binding PlaySectionVM.GoLabyrinth}" CornerRadius="10">
+						<TextBlock Text="Лабиринт" FontSize="20" TextAlignment="Center"/>
+					</Button>
+				</Border>
+
+				<Border Grid.Column="2" Grid.Row="0" CornerRadius="10" Background="#00A659" BoxShadow="0 5 #006838" VerticalAlignment="Stretch">
+					<Button HorizontalAlignment="Stretch" VerticalAlignment="Stretch" VerticalContentAlignment="Center" Command="{Binding PlaySectionVM.GoCreateFriend}" CornerRadius="10">
+						<TextBlock Text="Создай друга" FontSize="20" TextAlignment="Center"/>
+					</Button>
+				</Border>
+			</Grid>
+
+		</StackPanel>
+	</ScrollViewer>
+	
 </UserControl>

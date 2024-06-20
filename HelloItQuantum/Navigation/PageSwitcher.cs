@@ -9,7 +9,7 @@ namespace HelloItQuantum.Navigation
 	/// </summary>
 	public class PageSwitcher : ViewModelBase
 	{
-		private UserControl? view = new HomeView();
+		private UserControl? view = new PlaySectionView();
 
 		/// <summary>
 		/// Текущая отображаемая страница
