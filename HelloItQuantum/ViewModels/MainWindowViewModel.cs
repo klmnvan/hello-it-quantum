@@ -2,12 +2,17 @@
 {
 	public class MainWindowViewModel : ViewModelBase
 	{
-
-        static PlaySectionViewModel playSectionViewModel = new PlaySectionViewModel();
+		#region Property
+		static PlaySectionViewModel playSectionViewModel = new PlaySectionViewModel();
 
         static HomeViewModel homeViewModel = new HomeViewModel();
-        public static HomeViewModel HomeVM { get => homeViewModel; set => homeViewModel = value; }
-        public static PlaySectionViewModel PlaySectionVM { get => playSectionViewModel; set => playSectionViewModel = value; }
 
-    }
+		static GameCreateFriendViewModel gameCreateFriendViewModel = new GameCreateFriendViewModel();
+		public static HomeViewModel HomeVM { get => homeViewModel; set => homeViewModel = value; }
+        public static PlaySectionViewModel PlaySectionVM { get => playSectionViewModel; set => playSectionViewModel = value; }
+		public static GameCreateFriendViewModel GameCreateFriendVM { get => gameCreateFriendViewModel; set => gameCreateFriendViewModel = value; }
+		#endregion
+
+
+	}
 }
