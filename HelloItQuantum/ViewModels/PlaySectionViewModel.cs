@@ -16,12 +16,12 @@ namespace HelloItQuantum.ViewModels
 
         public void GoLabyrinth()
         {
-
+            //PageSwitch.View = new UserControl();
         }
 
         public void GoCreateFriend()
         {
-
+            //PageSwitch.View = new UserControl();
         }
 
     }

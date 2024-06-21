@@ -14,8 +14,8 @@
         <FluentTheme />
     </Application.Styles>
 
-	<!--<Application.Resources>
+	<Application.Resources>
 		<FontFamily x:Key="BankGothicMediumRUS">avares://HelloItQuantum/Assets/BankGothicMediumRUS.ttf#</FontFamily>
-	</Application.Resources>-->
+	</Application.Resources>
 	
 </Application>

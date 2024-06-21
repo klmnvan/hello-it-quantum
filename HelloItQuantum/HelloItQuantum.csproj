@@ -15,12 +15,21 @@
 
   <ItemGroup>
     <None Remove="Assets\BankGothicMediumRUS.ttf" />
+    <None Remove="Assets\icon_comands.png" />
+    <None Remove="Assets\icon_comands.svg" />
+    <None Remove="Assets\icon_create_friend.png" />
+    <None Remove="Assets\icon_create_friend.svg" />
+    <None Remove="Assets\icon_labyrinth.png" />
+    <None Remove="Assets\icon_labyrinth.svg" />
+    <None Remove="Assets\kvanlogo.png" />
+    <None Remove="Assets\фон.png" />
   </ItemGroup>
 
 
   <ItemGroup>
     <PackageReference Include="Avalonia" Version="11.0.6" />
     <PackageReference Include="Avalonia.Desktop" Version="11.0.6" />
+    <PackageReference Include="Avalonia.Svg" Version="11.0.0.18" />
     <PackageReference Include="Avalonia.Themes.Fluent" Version="11.0.6" />
     <PackageReference Include="Avalonia.Fonts.Inter" Version="11.0.6" />
     <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
