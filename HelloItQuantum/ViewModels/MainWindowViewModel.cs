@@ -2,7 +2,7 @@
 {
 	public class MainWindowViewModel : ViewModelBase
 	{
-		#region Property
+		#region ViewModel-objects
 		static PlaySectionViewModel playSectionViewModel = new PlaySectionViewModel();
 
         static HomeViewModel homeViewModel = new HomeViewModel();

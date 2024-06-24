@@ -37,25 +37,23 @@
 					<Border Grid.Column="4" Grid.Row="0" CornerRadius="10" Background="#E6EFD8">
 						<TextBlock Text="Положение" VerticalAlignment="Stretch" Margin="10" TextAlignment="Center"/>
 					</Border>
-
-
+					
 					<StackPanel Grid.ColumnSpan="5" Grid.Row="2">
-						<StackPanel Children=""/>
 						
-						<ComboBox ItemsSource="{Binding GameCreateFriendVM.CbItems}" Width="200"/>
+						<ListBox ItemsSource="{Binding GameCreateFriendVM.ListElements}">
+							<ListBox.ItemTemplate>
+								<DataTemplate>
+									<StackPanel Orientation="Horizontal">
+										<ComboBox ItemsSource="{Binding CbElement}" Width="180" Margin="0 0 40 0"/>
+										<ComboBox ItemsSource="{Binding CbColor}" Width="120"/>
+									</StackPanel>
+								</DataTemplate>
+							</ListBox.ItemTemplate>
+						</ListBox>
 						
-						<!--<ComboBox SelectedIndex="0" Width="200">										
-							<Rectangle Fill="#0036A0" Width="100" Height="100" RadiusX="10" RadiusY="10"/>
-							<Ellipse Fill="#0036A0" Width="100" Height="100"/>
-							<Svg Path="/Assets/ImgCreateFriend/body_blue.svg" Width="100"/>
-							<Svg Path="/Assets/ImgCreateFriend/foot1_blue.svg" Height="60"/>
-							<Svg Path="/Assets/ImgCreateFriend/foot2_blue.svg" Height="60"/>
-							<Svg Path="/Assets/ImgCreateFriend/eye_blue.svg" Width="30"/>
-							<Svg Path="/Assets/ImgCreateFriend/eye_blue.svg" Width="40"/>						
-						</ComboBox>-->
-
-
-						<Button Content="+" Background="#E6EFD8" Width="200"/>
+						<Button Content="+" Command="{Binding GameCreateFriendVM.ClickCreateElement}"
+								Background="#E6EFD8" Width="200"/>					
+						
 					</StackPanel>
 				</Grid>
 

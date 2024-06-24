@@ -1,67 +1,93 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.IO;
 using System.Xml.Linq;
 using Avalonia.Controls;
 using Avalonia.Controls.Shapes;
-using Avalonia.Media;
-using Avalonia.Media.Imaging;
-using Avalonia.Svg;
+using Avalonia.Media; 
+using HelloItQuantum.Function;
+using HelloItQuantum.Models;
 using Svg.Model;
 
 namespace HelloItQuantum.ViewModels
 {
 	public class GameCreateFriendViewModel : MainWindowViewModel
 	{
-		private Uri baseUri = new Uri("avares://HelloItQuantum/");
+		#region Object and Property for Xaml
 
-		List<ComboBoxItem> cbItems = new List<ComboBoxItem>();
-		public List<ComboBoxItem> CbItems { get => cbItems; set => cbItems = value; }
+		List<ComboBoxItem> listElement = new List<ComboBoxItem>();
+		public List<ComboBoxItem> ListElement { get => listElement; set => SetProperty(ref listElement, value); }
+
+		List<Ellipse> listColors = new List<Ellipse>();
+		public List<Ellipse> ListColors { get => listColors; set => SetProperty(ref listColors, value); }
+
+		ObservableCollection<FriendElement> listElements = new ObservableCollection<FriendElement>();
+		public ObservableCollection<FriendElement> ListElements { get => listElements; set => SetProperty(ref listElements, value); }
+		#endregion
 
 		public GameCreateFriendViewModel()
 		{
-			Rectangle rectangle = new Rectangle();
-			rectangle.Width = 100;
-			rectangle.Height = 100;
-			rectangle.RadiusX = 10;
-			rectangle.RadiusY = 10;
-			rectangle.Fill = new SolidColorBrush(Color.FromRgb(0, 54, 160));
-			AddItemToComboBox(rectangle);
-
-			Ellipse ellipse = new Ellipse();
-			ellipse.Fill = new SolidColorBrush(Color.FromRgb(0, 54, 160));
-			ellipse.Width = 100;
-			ellipse.Height = 100;
-			AddItemToComboBox(ellipse);
-		
+			//Добавление фигур
+			AddItemToComboBox(CreateElFriend.CreateRectangle(Color.Parse("#0036A0")));
+			AddItemToComboBox(CreateElFriend.CreateEllipse(Color.Parse("#0036A0"), null));
 			SvgParameters svgParameters = new SvgParameters(null, "path { fill: #0036A0; }");
-			AddSvgToComboBox("/Assets/ImgCreateFriend/body.svg", 100, null, svgParameters);
-			AddSvgToComboBox("/Assets/ImgCreateFriend/foot1.svg", null, 60, null);
-			AddSvgToComboBox("/Assets/ImgCreateFriend/foot2.svg", null, 60, null);
-			AddSvgToComboBox("/Assets/ImgCreateFriend/eye.svg", 30, null, null);
-			AddSvgToComboBox("/Assets/ImgCreateFriend/eye.svg", 40, null, null);
+			AddItemToComboBox(CreateElFriend.GetSvgImage("/Assets/ImgCreateFriend/body.svg", 100, null, svgParameters));
+			AddItemToComboBox(CreateElFriend.GetSvgImage("/Assets/ImgCreateFriend/foot1.svg", null, 60, null));
+			AddItemToComboBox(CreateElFriend.GetSvgImage("/Assets/ImgCreateFriend/foot2.svg", null, 60, null));
+			AddItemToComboBox(CreateElFriend.GetSvgImage("/Assets/ImgCreateFriend/eye.svg", 30, null, null));
+			AddItemToComboBox(CreateElFriend.GetSvgImage("/Assets/ImgCreateFriend/eye.svg", 40, null, null));
+			//Добавление цветов
+			ListColors.Add(CreateElFriend.CreateEllipse(Color.Parse("#0036A0"), 50));
+			ListColors.Add(CreateElFriend.CreateEllipse(Color.Parse("#F26527"), 50));
+			ListColors.Add(CreateElFriend.CreateEllipse(Color.Parse("#B21E22"), 50));
+			ListColors.Add(CreateElFriend.CreateEllipse(Color.Parse("#006838"), 50));
 		}
 
-		private void AddSvgToComboBox(string path, double? width, double? height, SvgParameters? svgParameters)
+		public void ClickCreateElement()
 		{
-			SvgImage svgImage = new SvgImage();
-			svgImage.Source = SvgSource.Load(path, baseUri, svgParameters);
-			Image convertedImage = new Image
-			{
-				Source = svgImage,
-				Width = width != null ? (double) width : double.NaN,
-				Height = height != null ? (double) height : double.NaN,
-			};
-			AddItemToComboBox(convertedImage);
+			FriendElement friendElement = new FriendElement();
+			friendElement.CbElement = CopyComboBoxItem(ListElement);
+			friendElement.CbColor = CopyEllipse(ListColors);
+			ListElements.Add(friendElement);
+
+			//Не получается добавить несколько элементов.
+			//Пофиксить: сделать добавление одного элемента листа и его вывод. то есть выбираем все поля и нажимаем ок
+			//
+			//
+			//Color c = ((SolidColorBrush)ListColor[0].Fill).Color;			
 		}
 
+		/// <summary>
+		/// Добавляет элемент в ComboBox
+		/// </summary>
+		/// <typeparam name="T"></typeparam>
+		/// <param name="element"></param>
 		private void AddItemToComboBox<T>(T element)
 		{
 			ComboBoxItem comboBoxItem = new ComboBoxItem();
 			comboBoxItem.Content = element;
-			CbItems.Add(comboBoxItem);
-		}	
+			listElement.Add(comboBoxItem);
+		}
+
+		private List<ComboBoxItem> CopyComboBoxItem(List<ComboBoxItem> elements)
+		{
+			List<ComboBoxItem> elementCopy = new List<ComboBoxItem>();
+            foreach (var item in elements)
+            {
+				elementCopy.Add(item);
+			}
+			return elementCopy;
+		}
+
+		private List<Ellipse> CopyEllipse(List<Ellipse> colors)
+		{
+			List<Ellipse> colorCopy = new List<Ellipse>();
+			foreach (var item in colors)
+			{
+				colorCopy.Add(item);
+			}
+			return colorCopy;
+		}
 
 	}
 }
