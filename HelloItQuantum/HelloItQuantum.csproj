@@ -21,6 +21,8 @@
     <None Remove="Assets\icon_create_friend.svg" />
     <None Remove="Assets\icon_labyrinth.png" />
     <None Remove="Assets\icon_labyrinth.svg" />
+    <None Remove="Assets\ImgCreateFriend\body.svg" />
+    <None Remove="Assets\ImgCreateFriend\eye.svg" />
     <None Remove="Assets\img_friend.png" />
     <None Remove="Assets\kvanlogo.png" />
     <None Remove="Assets\фон.png" />

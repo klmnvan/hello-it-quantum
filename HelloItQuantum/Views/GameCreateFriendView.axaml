@@ -41,14 +41,25 @@
 
 					<StackPanel Grid.ColumnSpan="5" Grid.Row="2">
 						<StackPanel Children=""/>
-
+						
+						<ComboBox ItemsSource="{Binding GameCreateFriendVM.CbItems}" Width="200"/>
+						
+						<!--<ComboBox SelectedIndex="0" Width="200">										
+							<Rectangle Fill="#0036A0" Width="100" Height="100" RadiusX="10" RadiusY="10"/>
+							<Ellipse Fill="#0036A0" Width="100" Height="100"/>
+							<Svg Path="/Assets/ImgCreateFriend/body_blue.svg" Width="100"/>
+							<Svg Path="/Assets/ImgCreateFriend/foot1_blue.svg" Height="60"/>
+							<Svg Path="/Assets/ImgCreateFriend/foot2_blue.svg" Height="60"/>
+							<Svg Path="/Assets/ImgCreateFriend/eye_blue.svg" Width="30"/>
+							<Svg Path="/Assets/ImgCreateFriend/eye_blue.svg" Width="40"/>						
+						</ComboBox>-->
 
 
 						<Button Content="+" Background="#E6EFD8" Width="200"/>
 					</StackPanel>
 				</Grid>
 
-				<Image Grid.Column="1" Grid.Row="0" Source="/Assets/img_friend.png" Width="400"/>
+				<Image Grid.Column="1" Grid.Row="0" Source="/Assets/ImgCreateFriend/img_friend.png" Width="400"/>
 
 				<Button Grid.ColumnSpan="2" Grid.Row="1"
 						Content="СОЗДАТЬ"
