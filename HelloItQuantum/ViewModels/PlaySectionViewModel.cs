@@ -12,6 +12,7 @@ namespace HelloItQuantum.ViewModels
 
         public void GoCommands()
         {
+            HotkeysVM = new HotkeysViewModel();
             PageSwitch.View = new HotkeysView();
         }
 
