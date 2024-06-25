@@ -4,22 +4,13 @@ using Avalonia.Media;
 using Avalonia.Svg;
 using Svg.Model;
 using System;
+using System.IO;
 
 namespace HelloItQuantum.Function
 {
 	public static class CreateElFriend
 	{
 		private static Uri baseUri = new Uri("avares://HelloItQuantum/");
-		public static Rectangle CreateRectangle(Color color, double size)
-		{
-			Rectangle rectangle = new Rectangle();
-			rectangle.Width = size;
-			rectangle.Height = size;
-			rectangle.RadiusX = 10;
-			rectangle.RadiusY = 10;
-			rectangle.Fill = new SolidColorBrush(color);
-			return rectangle;
-		}
 
 		public static Ellipse CreateEllipse(Color color, double size)
 		{
@@ -30,17 +21,26 @@ namespace HelloItQuantum.Function
 			return ellipse;
 		}
 
-		public static Image CreateSvgImage(string path, double? width, double? height, SvgParameters? svgParameters)
+		public static Image CreateSvgImage(string path, double height, SvgParameters? svgParameters)
 		{
 			SvgImage svgImage = new SvgImage();
 			svgImage.Source = SvgSource.Load(path, baseUri, svgParameters);
 			Image convertedImage = new Image
 			{
 				Source = svgImage,
-				Width = width != null ? (double) width : double.NaN,
-				Height = height != null ? (double) height : double.NaN,
+				Height = height
 			};
 			return convertedImage;
+		}
+
+		public static Panel CreateEye(double size, Color color)
+		{
+			Panel panel = new Panel();
+			Ellipse eyeball = CreateEllipse(color, size-5);
+			panel.Children.Add(eyeball);
+			Image eye = CreateSvgImage("/Assets/ImgCreateFriend/eye.svg", size, null);
+			panel.Children.Add(eye);
+			return panel;
 		}
 
 	}

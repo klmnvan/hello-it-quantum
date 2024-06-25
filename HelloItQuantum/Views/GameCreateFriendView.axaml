@@ -24,7 +24,7 @@
 		<StackPanel Background="#006838">
 			<Grid ColumnDefinitions="auto, auto" RowDefinitions="auto, auto" Margin="20" HorizontalAlignment="Center">
 
-				<Grid Grid.Column="0" Grid.Row="0" ColumnDefinitions="200, 20, 140, 20, 250, 30" RowDefinitions="auto, 20, auto">
+				<Grid Grid.Column="0" Grid.Row="0" ColumnDefinitions="200, 20, 140, 20, 300, 30" RowDefinitions="auto, 20, auto">
 
 					<Border Grid.Column="0"  Grid.Row="0" CornerRadius="10" Background="#E6EFD8">
 						<TextBlock Text="Фигура" VerticalAlignment="Stretch" Margin="10" TextAlignment="Center"/>
@@ -43,8 +43,12 @@
 							<ListBox.ItemTemplate>
 								<DataTemplate>
 									<StackPanel Orientation="Horizontal">
-										<ComboBox ItemsSource="{Binding CbElement}" SelectedIndex="{Binding SelectedElementIndex}" Width="180" Margin="0 0 40 0"/>
-										<ComboBox ItemsSource="{Binding CbColor}" SelectedIndex="{Binding SelectedColorIndex}" Width="120"/>
+										<ComboBox ItemsSource="{Binding CbElement}" SelectedIndex="{Binding SelectedElementIndex}" Width="180" Height="120" Margin="0 0 40 0"/>
+										<ComboBox ItemsSource="{Binding CbColor}" SelectedIndex="{Binding SelectedColorIndex}" Width="120" Height="120" Margin="0 0 40 0"/>				
+										<ComboBox ItemsSource="{Binding CbNavigateOne}" SelectedIndex="{Binding SelectedNavigateOne}" IsVisible="{Binding IsVisibleNavigateOne}"
+												  Width="100" Height="80" Margin="0 0 10 0"/>										
+										<ComboBox ItemsSource="{Binding CbNavigateTwo}" SelectedIndex="{Binding SelectedNavigateTwo}" IsVisible="{Binding IsVisibleNavigateTwo}"
+												  Width="100" Height="80"/>									
 									</StackPanel>
 								</DataTemplate>
 							</ListBox.ItemTemplate>
