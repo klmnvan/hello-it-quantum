@@ -38,7 +38,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Assets\voice1.wav" />
+    <EmbeddedResource Include="Assets\HotkeysAudio\voice1.wav" />
   </ItemGroup>
 
 
