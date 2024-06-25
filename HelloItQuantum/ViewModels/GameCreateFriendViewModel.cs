@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Xml.Linq;
+using System.ComponentModel;
 using Avalonia.Controls;
 using Avalonia.Controls.Shapes;
 using Avalonia.Media; 
@@ -15,79 +15,90 @@ namespace HelloItQuantum.ViewModels
 	{
 		#region Object and Property for Xaml
 
-		List<ComboBoxItem> listElement = new List<ComboBoxItem>();
-		public List<ComboBoxItem> ListElement { get => listElement; set => SetProperty(ref listElement, value); }
-
-		List<Ellipse> listColors = new List<Ellipse>();
-		public List<Ellipse> ListColors { get => listColors; set => SetProperty(ref listColors, value); }
+		Dictionary<int, Color> keyValueColor = new Dictionary<int, Color>
+		{
+			{ 0, Color.Parse("#0036A0") },
+			{ 1, Color.Parse("#F26527") },
+			{ 2, Color.Parse("#B21E22") },
+			{ 3, Color.Parse("#006838") }
+		};
 
 		ObservableCollection<FriendElement> listElements = new ObservableCollection<FriendElement>();
 		public ObservableCollection<FriendElement> ListElements { get => listElements; set => SetProperty(ref listElements, value); }
-		#endregion
 
-		public GameCreateFriendViewModel()
-		{
-			//Добавление фигур
-			AddItemToComboBox(CreateElFriend.CreateRectangle(Color.Parse("#0036A0")));
-			AddItemToComboBox(CreateElFriend.CreateEllipse(Color.Parse("#0036A0"), null));
-			SvgParameters svgParameters = new SvgParameters(null, "path { fill: #0036A0; }");
-			AddItemToComboBox(CreateElFriend.GetSvgImage("/Assets/ImgCreateFriend/body.svg", 100, null, svgParameters));
-			AddItemToComboBox(CreateElFriend.GetSvgImage("/Assets/ImgCreateFriend/foot1.svg", null, 60, null));
-			AddItemToComboBox(CreateElFriend.GetSvgImage("/Assets/ImgCreateFriend/foot2.svg", null, 60, null));
-			AddItemToComboBox(CreateElFriend.GetSvgImage("/Assets/ImgCreateFriend/eye.svg", 30, null, null));
-			AddItemToComboBox(CreateElFriend.GetSvgImage("/Assets/ImgCreateFriend/eye.svg", 40, null, null));
-			//Добавление цветов
-			ListColors.Add(CreateElFriend.CreateEllipse(Color.Parse("#0036A0"), 50));
-			ListColors.Add(CreateElFriend.CreateEllipse(Color.Parse("#F26527"), 50));
-			ListColors.Add(CreateElFriend.CreateEllipse(Color.Parse("#B21E22"), 50));
-			ListColors.Add(CreateElFriend.CreateEllipse(Color.Parse("#006838"), 50));
-		}
-
+		Panel pChildrens = new Panel();
+		public Panel PChildrens { get => pChildrens; set => SetProperty(ref pChildrens, value);}
+		
+		#endregion	
 		public void ClickCreateElement()
 		{
 			FriendElement friendElement = new FriendElement();
-			friendElement.CbElement = CopyComboBoxItem(ListElement);
-			friendElement.CbColor = CopyEllipse(ListColors);
+			ObservableCollection<Ellipse> listColors= new ObservableCollection<Ellipse>();
+			ObservableCollection<ComboBoxItem> listEl = new ObservableCollection<ComboBoxItem>();
+			//Добавление фигур
+			SvgParameters svgParameters = new SvgParameters(null, "path { fill: #0036A0; }");
+			listEl.Add(ConvertToItem(CreateElFriend.CreateRectangle(Color.Parse("#0036A0"), 100)));
+			listEl.Add(ConvertToItem(CreateElFriend.CreateEllipse(Color.Parse("#0036A0"), 100)));
+			listEl.Add(ConvertToItem(CreateElFriend.CreateSvgImage("/Assets/ImgCreateFriend/body.svg", 100, null, svgParameters)));
+			listEl.Add(ConvertToItem(CreateElFriend.CreateSvgImage("/Assets/ImgCreateFriend/foot1.svg", null, 60, null)));
+			listEl.Add(ConvertToItem(CreateElFriend.CreateSvgImage("/Assets/ImgCreateFriend/foot2.svg", null, 60, null)));
+			listEl.Add(ConvertToItem(CreateElFriend.CreateSvgImage("/Assets/ImgCreateFriend/eye.svg", 30, null, null)));
+			listEl.Add(ConvertToItem(CreateElFriend.CreateSvgImage("/Assets/ImgCreateFriend/eye.svg", 40, null, null)));
+			friendElement.CbElement = listEl;
+			//Добавление цветов
+			foreach (var item in keyValueColor)
+            {
+				listColors.Add(CreateElFriend.CreateEllipse(item.Value, 50));
+			}
+			friendElement.CbColor = listColors;
+			friendElement.Id = ListElements.Count;
 			ListElements.Add(friendElement);
-
-			//Не получается добавить несколько элементов.
-			//Пофиксить: сделать добавление одного элемента листа и его вывод. то есть выбираем все поля и нажимаем ок
-			//
-			//
-			//Color c = ((SolidColorBrush)ListColor[0].Fill).Color;			
+			UpdateDrawing(ListElements.Count - 1);
 		}
 
-		/// <summary>
-		/// Добавляет элемент в ComboBox
-		/// </summary>
-		/// <typeparam name="T"></typeparam>
-		/// <param name="element"></param>
-		private void AddItemToComboBox<T>(T element)
+		private ComboBoxItem ConvertToItem<T>(T element)
 		{
 			ComboBoxItem comboBoxItem = new ComboBoxItem();
 			comboBoxItem.Content = element;
-			listElement.Add(comboBoxItem);
+			return comboBoxItem;
 		}
 
-		private List<ComboBoxItem> CopyComboBoxItem(List<ComboBoxItem> elements)
+		public void UpdateDrawing(int id)
 		{
-			List<ComboBoxItem> elementCopy = new List<ComboBoxItem>();
-            foreach (var item in elements)
-            {
-				elementCopy.Add(item);
-			}
-			return elementCopy;
+			Color color = keyValueColor[ListElements[id].SelectedColorIndex];
+			int indexEl = ListElements[id].SelectedElementIndex;
+			Control element = GetElement(indexEl, color);
+			if (id < pChildrens.Children.Count) //Изменяем элемент
+				pChildrens.Children[id] = element;
+			else //Добавляем новый
+				pChildrens.Children.Add(element);
 		}
 
-		private List<Ellipse> CopyEllipse(List<Ellipse> colors)
+		/// <summary>
+		/// Создает элемент нужного цвета
+		/// </summary>
+		/// <param name="indexElement"></param>
+		/// <param name="color"></param>
+		/// <returns></returns>
+		/// <exception cref="ArgumentException"></exception>
+		public Control GetElement(int indexElement, Color? color)
 		{
-			List<Ellipse> colorCopy = new List<Ellipse>();
-			foreach (var item in colors)
+			SvgParameters svg;
+			if (color != null)
+				svg = new SvgParameters(null, $"path {{ fill: #{color.ToString().Substring(3)}; }}");			
+			switch (indexElement)
 			{
-				colorCopy.Add(item);
-			}
-			return colorCopy;
-		}
+				case 0: return (Control) CreateElFriend.CreateRectangle((Color) color, 100);
+				case 1: return (Control) CreateElFriend.CreateEllipse((Color) color, 100);
+				case 2: return (Control) CreateElFriend.CreateSvgImage("/Assets/ImgCreateFriend/body.svg", 100, null, svg);
+				case 3: return (Control) CreateElFriend.CreateSvgImage("/Assets/ImgCreateFriend/foot1.svg", null, 60, svg);
+				case 4: return (Control) CreateElFriend.CreateSvgImage("/Assets/ImgCreateFriend/foot2.svg", null, 60, svg);
 
+				case 5: return (Control) CreateElFriend.CreateSvgImage("/Assets/ImgCreateFriend/eye.svg", 30, null, null);
+				case 6: return (Control) CreateElFriend.CreateSvgImage("/Assets/ImgCreateFriend/eye.svg", 40, null, null);
+
+				default: throw new ArgumentException("Invalid indexElement value.");
+			}		
+		}
 	}
 }

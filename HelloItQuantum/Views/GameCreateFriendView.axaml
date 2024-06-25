@@ -38,26 +38,29 @@
 						<TextBlock Text="Положение" VerticalAlignment="Stretch" Margin="10" TextAlignment="Center"/>
 					</Border>
 					
-					<StackPanel Grid.ColumnSpan="5" Grid.Row="2">
-						
+					<StackPanel Grid.ColumnSpan="5" Grid.Row="2">	
 						<ListBox ItemsSource="{Binding GameCreateFriendVM.ListElements}">
 							<ListBox.ItemTemplate>
 								<DataTemplate>
 									<StackPanel Orientation="Horizontal">
-										<ComboBox ItemsSource="{Binding CbElement}" Width="180" Margin="0 0 40 0"/>
-										<ComboBox ItemsSource="{Binding CbColor}" Width="120"/>
+										<ComboBox ItemsSource="{Binding CbElement}" SelectedIndex="{Binding SelectedElementIndex}" Width="180" Margin="0 0 40 0"/>
+										<ComboBox ItemsSource="{Binding CbColor}" SelectedIndex="{Binding SelectedColorIndex}" Width="120"/>
 									</StackPanel>
 								</DataTemplate>
 							</ListBox.ItemTemplate>
-						</ListBox>
-						
+						</ListBox>					
 						<Button Content="+" Command="{Binding GameCreateFriendVM.ClickCreateElement}"
-								Background="#E6EFD8" Width="200"/>					
-						
+								Background="#E6EFD8" Width="200"/>								
 					</StackPanel>
+					
+					
 				</Grid>
 
-				<Image Grid.Column="1" Grid.Row="0" Source="/Assets/ImgCreateFriend/img_friend.png" Width="400"/>
+				<Panel Grid.Column="1" Grid.Row="0">
+					<Image Source="/Assets/ImgCreateFriend/img_friend.png" Width="400"/>
+					<ContentControl Width="200" Height="200" HorizontalAlignment="Right" VerticalAlignment="Bottom"
+						 Margin="0 0 20 40" Content="{Binding GameCreateFriendVM.PChildrens}"/>						
+				</Panel>
 
 				<Button Grid.ColumnSpan="2" Grid.Row="1"
 						Content="СОЗДАТЬ"
