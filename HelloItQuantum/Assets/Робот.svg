@@ -1,0 +1,32 @@
+<svg width="256" height="284" viewBox="0 0 256 284" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="143.5" y="228.5" width="40" height="47" rx="3.5" fill="#0BA5CF" stroke="#0036A0" stroke-width="3"/>
+<rect x="143.5" y="155.5" width="40" height="56" rx="3.5" fill="#0BA5CF" stroke="#0036A0" stroke-width="3"/>
+<rect x="145" y="162" width="37" height="15" fill="#0F748F"/>
+<circle cx="164" cy="220" r="14" fill="#0036A0"/>
+<path d="M135 284C135 275.716 141.716 269 150 269H177C185.284 269 192 275.716 192 284H135Z" fill="#0036A0"/>
+<rect x="86.5" y="1.5" width="83" height="60" rx="3.5" fill="#0BA5CF" stroke="#0036A0" stroke-width="3"/>
+<rect x="100" y="14" width="56" height="29" rx="14.5" fill="#0036A0"/>
+<circle cx="114" cy="28" r="7" fill="white"/>
+<circle cx="142" cy="28" r="7" fill="white"/>
+<path d="M171 22C174.866 22 178 25.134 178 29L178 36C178 39.866 174.866 43 171 43L171 22Z" fill="#0F748F"/>
+<path d="M85 42C81.134 42 78 38.866 78 35V28C78 24.134 81.134 21 85 21V42Z" fill="#0F748F"/>
+<rect x="72.5" y="155.5" width="40" height="56" rx="3.5" fill="#0BA5CF" stroke="#0036A0" stroke-width="3"/>
+<rect x="74" y="163" width="37" height="15" fill="#0F748F"/>
+<rect x="72.5" y="228.5" width="40" height="47" rx="3.5" fill="#0BA5CF" stroke="#0036A0" stroke-width="3"/>
+<path d="M64 284C64 275.716 70.7157 269 79 269H106C114.284 269 121 275.716 121 284H64Z" fill="#0036A0"/>
+<circle cx="93" cy="220" r="14" fill="#0036A0"/>
+<path d="M220 191C220 191 220.5 175 234 175C247.5 175 249 191 249 191" stroke="#F26527" stroke-width="13" stroke-linecap="round"/>
+<rect x="178.118" y="78.724" width="25.0363" height="56" rx="3.5" transform="rotate(-48 178.118 78.724)" fill="#0BA5CF" stroke="#0036A0" stroke-width="3"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M214 79.2564V109.084L181.665 79.9689C179.613 78.1212 179.447 74.9597 181.295 72.9076L189.435 63.8664C191.283 61.8142 194.445 61.6485 196.497 63.4963L214 79.2564Z" fill="#0F748F"/>
+<rect x="221.5" y="122.5" width="25" height="53" rx="3.5" fill="#0BA5CF" stroke="#0036A0" stroke-width="3"/>
+<circle cx="234" cy="114" r="14" fill="#0036A0"/>
+<path d="M36 191C36 191 35.5 175 22 175C8.5 175 7 191 7 191" stroke="#F26527" stroke-width="13" stroke-linecap="round"/>
+<rect x="-2.11841" y="-0.111021" width="25.0363" height="56" rx="3.5" transform="matrix(-0.669131 -0.743145 -0.743145 0.669131 76.3816 77.224)" fill="#0BA5CF" stroke="#0036A0" stroke-width="3"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M42 79.347V109.022L74.3046 79.9348C76.3567 78.087 76.5224 74.9255 74.6747 72.8734L66.6098 63.9164C64.762 61.8643 61.6005 61.6986 59.5484 63.5463L42 79.347Z" fill="#0F748F"/>
+<rect x="-1.5" y="1.5" width="25" height="53" rx="3.5" transform="matrix(-1 0 0 1 33 121)" fill="#0BA5CF" stroke="#0036A0" stroke-width="3"/>
+<circle cx="14" cy="14" r="14" transform="matrix(-1 0 0 1 36 100)" fill="#0036A0"/>
+<rect x="59.5" y="59.5" width="137" height="101" rx="2.5" fill="#0BA5CF" stroke="#0036A0" stroke-width="5"/>
+<rect x="92" y="85" width="72" height="43" fill="#0036A0"/>
+<rect x="107" y="100" width="14" height="21" fill="#F26527"/>
+<rect x="135" y="92" width="14" height="29" fill="#F26527"/>
+</svg>

@@ -12,7 +12,7 @@ namespace HelloItQuantum.ViewModels
 
         public void GoCommands()
         {
-            //PageSwitch.View = new UserControl();
+            PageSwitch.View = new HotkeysView();
         }
 
         public void GoLabyrinth()

@@ -12,6 +12,7 @@
   
     <Application.Styles>
         <FluentTheme />
+		
     </Application.Styles>
 
 	<Application.Resources>

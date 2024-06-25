@@ -14,6 +14,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <AvaloniaResource Remove="Assets\voice1.wav" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Assets\BankGothicMediumRUS.ttf" />
     <None Remove="Assets\icon_comands.png" />
     <None Remove="Assets\icon_comands.svg" />
@@ -23,7 +27,18 @@
     <None Remove="Assets\icon_labyrinth.svg" />
     <None Remove="Assets\img_friend.png" />
     <None Remove="Assets\kvanlogo.png" />
+    <None Remove="Assets\voice1.mp3" />
+    <None Remove="Assets\voice1.wav" />
+    <None Remove="Assets\Диалоговое_окно.png" />
+    <None Remove="Assets\Диалоговое_окно.svg" />
+    <None Remove="Assets\КнопкаPlay.png" />
+    <None Remove="Assets\КнопкаPlay.svg" />
+    <None Remove="Assets\Робот.svg" />
     <None Remove="Assets\фон.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\voice1.wav" />
   </ItemGroup>
 
 
@@ -37,5 +52,9 @@
     <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="11.0.6" />
     <PackageReference Include="Avalonia.ReactiveUI" Version="11.0.6" />
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
+    <PackageReference Include="MediaPlayer.Avalonia" Version="2.0.0" />
+    <PackageReference Include="MediaPlayer.Avalonia.Bass" Version="2.0.0" />
+    <PackageReference Include="System.Windows.Extensions" Version="8.0.0" />
+    <PackageReference Include="TruDan.Avalonia.ExtendedToolkit" Version="0.9.5.1" />
   </ItemGroup>
 </Project>
