@@ -12,6 +12,9 @@
 		<Style Selector="TextBlock">
 			<Setter Property="FontFamily" Value="{StaticResource BankGothicMediumRUS}" />
 		</Style>
+		<Style Selector="Button">
+			<Setter Property="FontFamily" Value="{StaticResource BankGothicMediumRUS}" />
+		</Style>
 		<Style Selector="TextBox">
 			<Setter Property="FontFamily" Value="{StaticResource BankGothicMediumRUS}" />
 		</Style>
@@ -30,62 +33,88 @@
 		</Style>
 	</UserControl.Styles>
 
-	<StackPanel HorizontalAlignment="Stretch" Orientation="Vertical" VerticalAlignment="Center">
+	<StackPanel HorizontalAlignment="Stretch" Orientation="Vertical" VerticalAlignment="Stretch">
+		<Panel>
 
-		<Grid ColumnDefinitions="0.7*,*" RowDefinitions="*" Width="{Binding $parent[StackPanel].Bounds.Width}">
-			<Svg Grid.Column="0" Grid.Row="0" Path="/Assets/Робот.svg" Margin="30 20 0 20"/>
-
-			<StackPanel Grid.Column="1" Grid.Row="0" Margin="0 30 50 25" VerticalAlignment="Stretch">
-				<StackPanel.Background>
-					<ImageBrush Source="/Assets/Диалоговое_окно.png" Stretch="Fill"/>
-				</StackPanel.Background>
-
-				<Grid ColumnDefinitions="0.1*,0.2*,0.05*,*,0.1*" RowDefinitions="45,*,30" VerticalAlignment="Stretch" >
-					<StackPanel Grid.Column="1" Grid.Row="1" >
-						<Button Command="{Binding HotkeysVM.PlayTask}" VerticalAlignment="Top" CornerRadius="10000" Padding="1">
-							<Image Source="/Assets/КнопкаPlay.png"/>
-						</Button>
-						<TextBlock Text="{Binding HotkeysVM.TextShowAct}" TextAlignment="Center" FontSize="24" Foreground="#0534B5"/>
+			<Grid ColumnDefinitions="0.7*,*" RowDefinitions="*" Width="{Binding $parent[StackPanel].Bounds.Width}">
+				<Panel Grid.Column="0" Grid.Row="0" Height="{Binding $parent[StackPanel].Bounds.Height}">
+					<StackPanel VerticalAlignment="Center" IsVisible="{Binding HotkeysVM.VisibleSvgHotkey}">
+						<Svg Path="/Assets/Робот.svg" Margin="0 0" VerticalAlignment="Center"/>
 					</StackPanel>
-					<StackPanel Grid.Column="3" Grid.Row="1" Background="" Name="spText">
-						<ScrollViewer VerticalAlignment="Stretch">
-							<!--Текст-->
-							<TextBlock VerticalAlignment="Stretch" FontSize="40" Name="MyTextBlock" 
-									   TextWrapping="Wrap" Foreground="#0534B5" HorizontalAlignment="Stretch"
-									   Text="{Binding HotkeysVM.TextInSP}">
-							</TextBlock>
-						</ScrollViewer>
-						<!--Поле ввода ответа-->
-						<Border CornerRadius="20" Background="#F26527" BoxShadow="0 5 #973F19" HorizontalAlignment="Stretch" Margin="0 20 0 0"
-									IsVisible="{Binding HotkeysVM.VisibleTBAnswer}">
-							<TextBox Background="Transparent" BorderBrush="Transparent" CornerRadius="20" Text="{Binding HotkeysVM.TextAnswer}"
-									 FontSize="40" Foreground="#FFFFFF" Padding="25 15" Watermark="Ответ:"/>
-						</Border>
-						<StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-							<!--Кнопка Далее-->
-							<Border CornerRadius="20" Background="#00A659" BoxShadow="0 5 #006838" Margin="0 20 0 20" HorizontalAlignment="Right"
-									IsVisible="{Binding HotkeysVM.VisibleBtnNext}">
-								<Button VerticalContentAlignment="Center"
-										Command="{Binding HotkeysVM.GoNext}" CommandParameter="Далее" CornerRadius="20">
-									<TextBlock Text="{Binding HotkeysVM.TextInBtnNext}" TextAlignment="Center" FontSize="40" Foreground="#FFFFFF" Margin="25 15"/>
-								</Button>
-							</Border>
-							<!--Кнопка Нет-->
-							<Border CornerRadius="20" Background="#B21E22" BoxShadow="0 5 #470C0D" Margin="30 20 0 20" HorizontalAlignment="Right"
-									IsVisible="{Binding HotkeysVM.VisibleBtnNo}">
-								<Button VerticalContentAlignment="Center"
-										Command="{Binding HotkeysVM.GoNext}" CommandParameter="Нет" CornerRadius="20">
-									<TextBlock Text="Нет" TextAlignment="Center" FontSize="40" Foreground="#FFFFFF" Margin="25 15"/>
-								</Button>
-							</Border>
+					<Grid RowDefinitions="5*, 2*" VerticalAlignment="Center" IsVisible="{Binding !HotkeysVM.VisibleSvgHotkey}" Margin="0 20">
+						<Svg Grid.Row="0" Path="/Assets/Робот.svg" VerticalAlignment="Center"/>
+						<Svg Grid.Row="1" Path="{Binding HotkeysVM.PathSvgHotkey}" Margin="100 0"/>
+					</Grid>
+
+				</Panel>
+
+				<StackPanel Grid.Column="1" Grid.Row="0" Margin="0 30 50 25" VerticalAlignment="Stretch">
+					<StackPanel.Background>
+						<ImageBrush Source="/Assets/Диалоговое_окно.png" Stretch="Fill"/>
+					</StackPanel.Background>
+
+					<Grid ColumnDefinitions="0.1*,0.2*,0.05*,*,0.1*" RowDefinitions="45,*,30" VerticalAlignment="Stretch" >
+						<StackPanel Grid.Column="1" Grid.Row="1" >
+							<Button Command="{Binding HotkeysVM.PlayTask}" VerticalAlignment="Top" CornerRadius="10000" Padding="1">
+								<Image Source="/Assets/КнопкаPlay.png"/>
+							</Button>
+							<TextBlock Text="{Binding HotkeysVM.TextShowAct}" TextAlignment="Center" FontSize="24" Foreground="#0534B5"/>
 						</StackPanel>
-						
-					</StackPanel>
-				</Grid>
-				
-			</StackPanel>
-			
-		</Grid>
+						<StackPanel Grid.Column="3" Grid.Row="1" Background="" Name="spText">
+							<ScrollViewer VerticalAlignment="Stretch">
+								<!--Текст-->
+								<TextBlock VerticalAlignment="Stretch" FontSize="40" Name="MyTextBlock"
+										   TextWrapping="Wrap" Foreground="#0534B5" HorizontalAlignment="Stretch"
+										   Text="{Binding HotkeysVM.TextInSP}">
+								</TextBlock>
+							</ScrollViewer>
+							<!--Поле ввода ответа-->
+							<StackPanel IsVisible="{Binding HotkeysVM.VisibleTBAnswer}">
+								<Border CornerRadius="20" Background="#F26527" BoxShadow="0 5 #973F19" HorizontalAlignment="Stretch" Margin="0 20 0 0"
+									>
+
+									<TextBox Background="Transparent" BorderBrush="Transparent" CornerRadius="20" Text="{Binding HotkeysVM.TextAnswer}"
+											 FontSize="40" Foreground="#FFFFFF" Padding="25 15" Watermark="Ответ:"/>
+
+								</Border>
+								<Button Content="Я забыл..." Background="Transparent" Foreground="#B21E22" FontSize="34"
+										Command="{Binding HotkeysVM.GoNext}" CommandParameter="Забыл" >
+									<Button.Styles>
+										<Style Selector="Button:pointerover/template/ContentPresenter">
+											<Setter Property="Background" Value="Transparent" />
+										</Style>
+									</Button.Styles>
+								</Button>
+							</StackPanel>
+							<StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+								<!--Кнопка Далее-->
+								<Border CornerRadius="20" Background="#00A659" BoxShadow="0 5 #006838" Margin="0 20 0 20" HorizontalAlignment="Right"
+										IsVisible="{Binding HotkeysVM.VisibleBtnNext}">
+									<Button VerticalContentAlignment="Center"
+											Command="{Binding HotkeysVM.GoNext}" CommandParameter="Далее" CornerRadius="20">
+										<TextBlock Text="{Binding HotkeysVM.TextInBtnNext}" TextAlignment="Center" FontSize="40" Foreground="#FFFFFF" Margin="25 15"/>
+									</Button>
+								</Border>
+								<!--Кнопка Нет-->
+								<Border CornerRadius="20" Background="#B21E22" BoxShadow="0 5 #470C0D" Margin="30 20 0 20" HorizontalAlignment="Right"
+										IsVisible="{Binding HotkeysVM.VisibleBtnNo}">
+									<Button VerticalContentAlignment="Center"
+											Command="{Binding HotkeysVM.GoNext}" CommandParameter="Нет" CornerRadius="20">
+										<TextBlock Text="Нет" TextAlignment="Center" FontSize="40" Foreground="#FFFFFF" Margin="25 15"/>
+									</Button>
+								</Border>
+							</StackPanel>
+
+						</StackPanel>
+					</Grid>
+
+				</StackPanel>
+
+			</Grid>
+			<Button Command="{Binding HotkeysVM.GoBack}" Width="50" Height="50" VerticalAlignment="Top" CornerRadius="10000" Padding="1" Margin="20 20 0 0">
+				<Image Source="/Assets/КнопкаНазад.png"/>
+			</Button>
+		</Panel>
 		
 	</StackPanel>
 </UserControl>

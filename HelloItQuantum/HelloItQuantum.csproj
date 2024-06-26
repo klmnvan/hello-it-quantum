@@ -18,8 +18,35 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Assets\AltF4.svg" />
+    <None Remove="Assets\Backspace.svg" />
     <None Remove="Assets\BankGothicMediumRUS.ttf" />
+    <None Remove="Assets\CtrlC.svg" />
+    <None Remove="Assets\CtrlV.svg" />
+    <None Remove="Assets\Del.svg" />
     <None Remove="Assets\HotkeysAudio\error.wav" />
+    <None Remove="Assets\HotkeysAudio\voice10.wav" />
+    <None Remove="Assets\HotkeysAudio\voice11.wav" />
+    <None Remove="Assets\HotkeysAudio\voice12.wav" />
+    <None Remove="Assets\HotkeysAudio\voice13.wav" />
+    <None Remove="Assets\HotkeysAudio\voice14.wav" />
+    <None Remove="Assets\HotkeysAudio\voice15.wav" />
+    <None Remove="Assets\HotkeysAudio\voice16.wav" />
+    <None Remove="Assets\HotkeysAudio\voice17.wav" />
+    <None Remove="Assets\HotkeysAudio\voice18.wav" />
+    <None Remove="Assets\HotkeysAudio\voice19.wav" />
+    <None Remove="Assets\HotkeysAudio\voice2.wav" />
+    <None Remove="Assets\HotkeysAudio\voice20.wav" />
+    <None Remove="Assets\HotkeysAudio\voice21.wav" />
+    <None Remove="Assets\HotkeysAudio\voice22.wav" />
+    <None Remove="Assets\HotkeysAudio\voice23.wav" />
+    <None Remove="Assets\HotkeysAudio\voice3.wav" />
+    <None Remove="Assets\HotkeysAudio\voice4.wav" />
+    <None Remove="Assets\HotkeysAudio\voice5.wav" />
+    <None Remove="Assets\HotkeysAudio\voice6.wav" />
+    <None Remove="Assets\HotkeysAudio\voice7.wav" />
+    <None Remove="Assets\HotkeysAudio\voice8.wav" />
+    <None Remove="Assets\HotkeysAudio\voice9.wav" />
     <None Remove="Assets\icon_comands.png" />
     <None Remove="Assets\icon_comands.svg" />
     <None Remove="Assets\icon_create_friend.png" />
@@ -30,10 +57,13 @@
     <None Remove="Assets\kvanlogo.png" />
     <None Remove="Assets\voice1.mp3" />
     <None Remove="Assets\voice1.wav" />
+    <None Remove="Assets\voice9.wav" />
     <None Remove="Assets\Диалоговое_окно.png" />
     <None Remove="Assets\Диалоговое_окно.svg" />
     <None Remove="Assets\КнопкаPlay.png" />
     <None Remove="Assets\КнопкаPlay.svg" />
+    <None Remove="Assets\КнопкаНазад.png" />
+    <None Remove="Assets\КнопкаНазад.svg" />
     <None Remove="Assets\Робот.svg" />
     <None Remove="Assets\фон.png" />
   </ItemGroup>
