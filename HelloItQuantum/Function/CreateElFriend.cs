@@ -54,14 +54,14 @@ namespace HelloItQuantum.Function
 			SvgParameters svg = new SvgParameters(null, $"path {{ fill: #{textColor}; }}");
 			switch (indexElement)
 			{
-				case 0: return (Control) CreateEllipse(110, color);
-				case 1: return (Control) CreateRectangle(110, color);
-				case 2: return (Control) CreateSvgImage("/Assets/ImgCreateFriend/body.svg", 110, svg);
-				case 3: return (Control) CreateSvgImage("/Assets/ImgCreateFriend/foot1.svg", 60, svg);
-				case 4: return (Control) CreateSvgImage("/Assets/ImgCreateFriend/foot2.svg", 60, svg);
-				case 5: return (Control) CreateEye(35, color);
-				case 6: return (Control) CreateEye(45, color);
-				default: return (Control) CreateEllipse(110, color);
+				case 0: return CreateEllipse(110, color);
+				case 1: return CreateRectangle(110, color);
+				case 2: return CreateSvgImage("/Assets/ImgCreateFriend/body.svg", 110, svg);
+				case 3: return CreateSvgImage("/Assets/ImgCreateFriend/foot1.svg", 60, svg);
+				case 4: return CreateSvgImage("/Assets/ImgCreateFriend/foot2.svg", 60, svg);
+				case 5: return CreateEye(35, color);
+				case 6: return CreateEye(45, color);
+				default: return CreateEllipse(110, color);
 			}
 		}
 	}

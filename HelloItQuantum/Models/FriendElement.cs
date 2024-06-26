@@ -13,13 +13,11 @@ namespace HelloItQuantum.Models
 		int selectedNavigateTwo = 0;
 		bool isVisibleNavigateOne = false;
 		bool isVisibleNavigateTwo = false;
-
 		public int Id { get; set; }
 		public ObservableCollection<ComboBoxItem> CbElement { get; set; }
 		public ObservableCollection<Ellipse> CbColor { get; set; }	
-		public ObservableCollection<ComboBoxItem>? CbNavigateOne { get; set; }
-		public ObservableCollection<ComboBoxItem>? CbNavigateTwo { get; set; }
-		
+		public ObservableCollection<ComboBoxItem> CbNavigateOne { get; set; }
+		public ObservableCollection<ComboBoxItem> CbNavigateTwo { get; set; }		
 		public int SelectedElementIndex
 		{
 			get => selectedElementIndex;
@@ -30,7 +28,6 @@ namespace HelloItQuantum.Models
 				GameCreateFriendVM.UpdateDrawing(Id);
 			}
 		}
-
 		public int SelectedColorIndex
 		{
 			get => selectedColorIndex;
@@ -40,7 +37,6 @@ namespace HelloItQuantum.Models
 				GameCreateFriendVM.UpdateDrawing(Id);
 			}
 		}
-
 		public int SelectedNavigateOne
 		{
 			get => selectedNavigateOne;
@@ -50,7 +46,6 @@ namespace HelloItQuantum.Models
 				GameCreateFriendVM.UpdateNavigate(Id);
 			}
 		}
-
 		public int SelectedNavigateTwo
 		{
 			get => selectedNavigateTwo;
@@ -60,13 +55,11 @@ namespace HelloItQuantum.Models
 				GameCreateFriendVM.UpdateNavigate(Id);
 			}
 		}
-
 		public bool IsVisibleNavigateOne
 		{
 			get => isVisibleNavigateOne;
 			set => SetProperty(ref isVisibleNavigateOne, value);
 		}
-
 		public bool IsVisibleNavigateTwo
 		{
 			get => isVisibleNavigateTwo;

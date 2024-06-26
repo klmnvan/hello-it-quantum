@@ -26,6 +26,9 @@ namespace HelloItQuantum.ViewModels
 
 		Panel pChildrens = new Panel();
 		public Panel PChildrens { get => pChildrens; set => SetProperty(ref pChildrens, value); }
+
+		bool isVisibleHello = false;
+		public bool IsVisibleHello { get => isVisibleHello; set => SetProperty(ref isVisibleHello, value); }
 		#endregion
 
 		public void ClickCreateElement()
@@ -58,6 +61,11 @@ namespace HelloItQuantum.ViewModels
 			UpdateDrawing(ListElements.Count - 1);
 		}
 
+		public void ClickCreateFriend()
+		{
+			IsVisibleHello = true;
+		}
+
 		public void UpdateDrawing(int id)
 		{
 			Color color = keyValueColor[ListElements[id].SelectedColorIndex];
@@ -79,11 +87,11 @@ namespace HelloItQuantum.ViewModels
 				{
 					case 1:
 						pChildrens.Children[id].HorizontalAlignment = HorizontalAlignment.Left;
-						pChildrens.Children[id].Margin = new Thickness(27, 0, 0, 0);
+						pChildrens.Children[id].Margin = new Thickness(26, 0, 0, 0);
 						break;
 					case 2:
 						pChildrens.Children[id].HorizontalAlignment = HorizontalAlignment.Right;
-						pChildrens.Children[id].Margin = new Thickness(0, 0, 27, 0);
+						pChildrens.Children[id].Margin = new Thickness(0, 0, 26, 0);
 						break;
 					default: pChildrens.Children[id].HorizontalAlignment = HorizontalAlignment.Center; break;
 				}
