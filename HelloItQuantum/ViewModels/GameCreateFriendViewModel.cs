@@ -1,21 +1,17 @@
-using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Xml.Linq;
+using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.Shapes;
+using Avalonia.Layout;
 using Avalonia.Media;
 using HelloItQuantum.Function;
 using HelloItQuantum.Models;
-using Svg.Model;
 
 namespace HelloItQuantum.ViewModels
 {
 	public class GameCreateFriendViewModel : MainWindowViewModel
 	{
-		#region Object and Property for Xaml
-
 		Dictionary<int, Color> keyValueColor = new Dictionary<int, Color>
 		{
 			{ 0, Color.Parse("#0036A0") },
@@ -24,74 +20,98 @@ namespace HelloItQuantum.ViewModels
 			{ 3, Color.Parse("#006838") }
 		};
 
+		#region Object and Property for Xaml
 		ObservableCollection<FriendElement> listElements = new ObservableCollection<FriendElement>();
 		public ObservableCollection<FriendElement> ListElements { get => listElements; set => SetProperty(ref listElements, value); }
 
 		Panel pChildrens = new Panel();
 		public Panel PChildrens { get => pChildrens; set => SetProperty(ref pChildrens, value); }
-
 		#endregion
+
 		public void ClickCreateElement()
 		{
 			FriendElement friendElement = new FriendElement();
-			ObservableCollection<Ellipse> listColors = new ObservableCollection<Ellipse>();
-			ObservableCollection<ComboBoxItem> listEl = new ObservableCollection<ComboBoxItem>();
-			//Добавление фигур
-			SvgParameters svgParameters = new SvgParameters(null, "path { fill: #293558; }");
-			listEl.Add(ConvertToItem(CreateElFriend.CreateEllipse(Color.Parse("#293558"), 100)));
-			listEl.Add(ConvertToItem(CreateElFriend.CreateSvgImage("/Assets/ImgCreateFriend/body1.svg", 100, null)));
-			listEl.Add(ConvertToItem(CreateElFriend.CreateSvgImage("/Assets/ImgCreateFriend/body2.svg", 100, null)));
-			listEl.Add(ConvertToItem(CreateElFriend.CreateSvgImage("/Assets/ImgCreateFriend/foot1.svg", 60, null)));
-			listEl.Add(ConvertToItem(CreateElFriend.CreateSvgImage("/Assets/ImgCreateFriend/foot2.svg", 60, null)));
-			listEl.Add(ConvertToItem(CreateElFriend.CreateEye(30, Color.Parse("#293558"))));
-			listEl.Add(ConvertToItem(CreateElFriend.CreateEye(30, Color.Parse("#293558"))));
-			friendElement.CbElement = listEl;
-			//Добавление цветов
+			ObservableCollection<Ellipse> lColors = new ObservableCollection<Ellipse>();
+			ObservableCollection<ComboBoxItem> lElements = new ObservableCollection<ComboBoxItem>();
+			ObservableCollection<ComboBoxItem> lNavigateOne = new ObservableCollection<ComboBoxItem>();
+			ObservableCollection<ComboBoxItem> lNavigateTwo = new ObservableCollection<ComboBoxItem>();
+			for (int i = 0; i < 7; i++)
+			{
+				lElements.Add(Converts.GenericToItem(CreateElFriend.CreateElement(i, Color.Parse("#293558"))));
+			}
+			friendElement.CbElement = lElements;
 			foreach (var item in keyValueColor)
 			{
-				listColors.Add(CreateElFriend.CreateEllipse(item.Value, 50));
+				lColors.Add(CreateElFriend.CreateEllipse(50, item.Value));
 			}
-			friendElement.CbColor = listColors;
+			friendElement.CbColor = lColors;
+			lNavigateOne.Add(Converts.GenericToItem(CreateElFriend.CreateSvgImage("/Assets/ImgCreateFriend/no_shift.svg", 30, null)));
+			lNavigateOne.Add(Converts.GenericToItem(CreateElFriend.CreateSvgImage("/Assets/ImgCreateFriend/left.svg", 30, null)));
+			lNavigateOne.Add(Converts.GenericToItem(CreateElFriend.CreateSvgImage("/Assets/ImgCreateFriend/right.svg", 30, null)));
+			friendElement.CbNavigateOne = lNavigateOne;
+			lNavigateTwo.Add(Converts.GenericToItem(CreateElFriend.CreateSvgImage("/Assets/ImgCreateFriend/no_shift.svg", 30, null)));
+			lNavigateTwo.Add(Converts.GenericToItem(CreateElFriend.CreateSvgImage("/Assets/ImgCreateFriend/top.svg", 30, null)));
+			lNavigateTwo.Add(Converts.GenericToItem(CreateElFriend.CreateSvgImage("/Assets/ImgCreateFriend/bottom.svg", 30, null)));
+			friendElement.CbNavigateTwo = lNavigateTwo;
 			friendElement.Id = ListElements.Count;
 			ListElements.Add(friendElement);
 			UpdateDrawing(ListElements.Count - 1);
-		}
-
-		private ComboBoxItem ConvertToItem<T>(T element)
-		{
-			ComboBoxItem comboBoxItem = new ComboBoxItem();
-			comboBoxItem.Content = element;
-			return comboBoxItem;
 		}
 
 		public void UpdateDrawing(int id)
 		{
 			Color color = keyValueColor[ListElements[id].SelectedColorIndex];
 			int indexEl = ListElements[id].SelectedElementIndex;
-			Control element = GetElement(indexEl, color);
-			if (id < pChildrens.Children.Count) //Изменяем элемент
-				pChildrens.Children[id] = element;
-			else //Добавляем новый
-				pChildrens.Children.Add(element);
+			Control element = CreateElFriend.CreateElement(indexEl, color);
+			if (id < pChildrens.Children.Count)
+				pChildrens.Children[id] = element; //Изменяем элемент
+			else
+				pChildrens.Children.Add(element); //Добавляем новый
+			UpdateNavigate(id);
 		}
 
 		public void UpdateNavigate(int id)
 		{
-			//pChildrens.Children[id].HorizontalAlignment = Avalonia.Layout.HorizontalAlignment.Left;
-
-
-			//CreateElFriend.CreateSvgImage("/Assets/ImgCreateFriend/eye.svg", 30, null, null);
-			//
-			//	no_shift
-			//	
-			//	switch (ListElements[id].SelectedNavigate)
-			//	{
-			//		case 0: return (Control)CreateElFriend.CreateRectangle((Color)color, 100);
-			//		case 1: return (Control)CreateElFriend.CreateRectangle((Color)color, 100);
-			//		case 2: return (Control)CreateElFriend.CreateRectangle((Color)color, 100);
-			//		case 3: return (Control)CreateElFriend.CreateRectangle((Color)color, 100);
-			//		default: throw new ArgumentException("Invalid indexElement value.");
-			//	}
+			pChildrens.Children[id].Margin = new Thickness(0, 0, 0, 0);
+			if (ListElements[id].SelectedElementIndex >= 3 && ListElements[id].SelectedElementIndex <= 6)
+			{
+				switch (ListElements[id].SelectedNavigateOne)
+				{
+					case 1:
+						pChildrens.Children[id].HorizontalAlignment = HorizontalAlignment.Left;
+						pChildrens.Children[id].Margin = new Thickness(27, 0, 0, 0);
+						break;
+					case 2:
+						pChildrens.Children[id].HorizontalAlignment = HorizontalAlignment.Right;
+						pChildrens.Children[id].Margin = new Thickness(0, 0, 27, 0);
+						break;
+					default: pChildrens.Children[id].HorizontalAlignment = HorizontalAlignment.Center; break;
+				}
+				if (ListElements[id].SelectedElementIndex == 5 || ListElements[id].SelectedElementIndex == 6)
+				{
+					switch (ListElements[id].SelectedNavigateTwo)
+					{
+						case 1:
+							pChildrens.Children[id].VerticalAlignment = VerticalAlignment.Top;
+							pChildrens.Children[id].Margin = new Thickness(pChildrens.Children[id].Margin.Left, 40, pChildrens.Children[id].Margin.Right, 0);
+							break;
+						case 2:
+							pChildrens.Children[id].VerticalAlignment = VerticalAlignment.Bottom;
+							pChildrens.Children[id].Margin = new Thickness(pChildrens.Children[id].Margin.Left, 0, pChildrens.Children[id].Margin.Right, 40);
+							break;
+						default: pChildrens.Children[id].VerticalAlignment = VerticalAlignment.Center; break;
+					}
+				}
+				else
+				{
+					pChildrens.Children[id].VerticalAlignment = VerticalAlignment.Bottom;
+				}
+			}
+			else
+			{
+				pChildrens.Children[id].HorizontalAlignment = HorizontalAlignment.Center;
+				pChildrens.Children[id].VerticalAlignment = VerticalAlignment.Center;
+			}
 		}
 
 		/// <summary>
@@ -114,32 +134,6 @@ namespace HelloItQuantum.ViewModels
 			{
 				ListElements[id].IsVisibleNavigateOne = false;
 				ListElements[id].IsVisibleNavigateTwo = false;
-			}
-		}
-
-		/// <summary>
-		/// Создает элемент нужного цвета
-		/// </summary>
-		/// <param name="indexElement"></param>
-		/// <param name="color"></param>
-		/// <returns></returns>
-		/// <exception cref="ArgumentException"></exception>
-		public Control GetElement(int indexElement, Color? color)
-		{
-			SvgParameters svg;
-			if (color != null)
-				svg = new SvgParameters(null, $"path {{ fill: #{color.ToString().Substring(3)}; }}");
-			switch (indexElement)
-			{
-				case 0: return (Control)CreateElFriend.CreateEllipse((Color)color, 100);
-				case 1: return (Control)CreateElFriend.CreateSvgImage("/Assets/ImgCreateFriend/body1.svg", 100, svg);
-				case 2: return (Control)CreateElFriend.CreateSvgImage("/Assets/ImgCreateFriend/body2.svg", 100, svg);
-				case 3: return (Control)CreateElFriend.CreateSvgImage("/Assets/ImgCreateFriend/foot1.svg", 60, svg);
-				case 4: return (Control)CreateElFriend.CreateSvgImage("/Assets/ImgCreateFriend/foot2.svg", 60, svg);
-				case 5: 
-				case 6: 
-
-				default: throw new ArgumentException("Invalid indexElement value.");
 			}
 		}
 	}

@@ -20,8 +20,7 @@
     <None Remove="Assets\icon_create_friend.svg" />
     <None Remove="Assets\icon_labyrinth.png" />
     <None Remove="Assets\icon_labyrinth.svg" />
-    <None Remove="Assets\ImgCreateFriend\body1.svg" />
-    <None Remove="Assets\ImgCreateFriend\body2.svg" />
+    <None Remove="Assets\ImgCreateFriend\body.svg" />
     <None Remove="Assets\ImgCreateFriend\eye.svg" />
     <None Remove="Assets\ImgCreateFriend\foot1.svg" />
     <None Remove="Assets\ImgCreateFriend\foot2.svg" />
