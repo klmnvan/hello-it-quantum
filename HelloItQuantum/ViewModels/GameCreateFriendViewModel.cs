@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Drawing.Printing;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.Shapes;
@@ -7,6 +8,7 @@ using Avalonia.Layout;
 using Avalonia.Media;
 using HelloItQuantum.Function;
 using HelloItQuantum.Models;
+using HelloItQuantum.Views;
 
 namespace HelloItQuantum.ViewModels
 {
@@ -29,6 +31,12 @@ namespace HelloItQuantum.ViewModels
 
 		bool isVisibleHello = false;
 		public bool IsVisibleHello { get => isVisibleHello; set => SetProperty(ref isVisibleHello, value); }
+
+		string btnContent = "янгдюрэ";
+		public string BtnContent { get => btnContent; set => SetProperty(ref btnContent, value); }
+
+		SolidColorBrush btnColor = new SolidColorBrush(Color.Parse("#7CBE41"));
+		public SolidColorBrush BtnColor { get => btnColor; set => SetProperty(ref btnColor, value); }
 		#endregion
 
 		public void ClickCreateElement()
@@ -63,7 +71,16 @@ namespace HelloItQuantum.ViewModels
 
 		public void ClickCreateFriend()
 		{
-			IsVisibleHello = true;
+			if (btnContent == "янгдюрэ")
+			{
+				IsVisibleHello = true;
+				BtnContent = "бширх";
+				BtnColor = new SolidColorBrush(Color.Parse("#F26527"));
+			}
+			else
+			{
+				PageSwitch.View = new PlaySectionView();
+			}
 		}
 
 		public void UpdateDrawing(int id)

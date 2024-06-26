@@ -71,10 +71,10 @@
 
 				<Button Grid.ColumnSpan="2" Grid.Row="1"
 						Command="{Binding GameCreateFriendVM.ClickCreateFriend}"
-						Content="СОЗДАТЬ"
+						Content="{Binding GameCreateFriendVM.BtnContent}"
 						HorizontalAlignment="Stretch"
 						Margin="0 30"
-						Background="#7CBE41"/>
+						Background="{Binding GameCreateFriendVM.BtnColor}"/>
 			</Grid>
 		</StackPanel>
 	</ScrollViewer>

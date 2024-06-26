@@ -7,10 +7,10 @@
 
         static HomeViewModel homeViewModel = new HomeViewModel();
 
-		static GameCreateFriendViewModel gameCreateFriendViewModel = new GameCreateFriendViewModel();
+		static GameCreateFriendViewModel? gameCreateFriendViewModel;
 		public static HomeViewModel HomeVM { get => homeViewModel; set => homeViewModel = value; }
         public static PlaySectionViewModel PlaySectionVM { get => playSectionViewModel; set => playSectionViewModel = value; }
-		public static GameCreateFriendViewModel GameCreateFriendVM { get => gameCreateFriendViewModel; set => gameCreateFriendViewModel = value; }
+		public static GameCreateFriendViewModel? GameCreateFriendVM { get => gameCreateFriendViewModel; set => gameCreateFriendViewModel = value; }
 		#endregion
 
 
