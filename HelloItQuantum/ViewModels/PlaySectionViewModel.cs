@@ -1,9 +1,4 @@
-using System;
-using System.Collections.Generic;
-using Avalonia.Controls;
-using HelloItQuantum.Navigation;
 using HelloItQuantum.Views;
-using ReactiveUI;
 
 namespace HelloItQuantum.ViewModels
 {
@@ -23,7 +18,8 @@ namespace HelloItQuantum.ViewModels
 
         public void GoCreateFriend()
         {
-            PageSwitch.View = new GameCreateFriendView();
+			GameCreateFriendVM = new GameCreateFriendViewModel();
+			PageSwitch.View = new GameCreateFriendView();
         }
 
     }

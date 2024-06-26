@@ -17,9 +17,12 @@ namespace HelloItQuantum
 
 			if (type != null)
 			{
-				var control = (Control)Activator.CreateInstance(type)!;
-				control.DataContext = data;
-				return control;
+				var control = Activator.CreateInstance(type) as Control;
+				if (control != null)
+				{
+					control.DataContext = data;
+					return control;
+				}
 			}
 
 			return new TextBlock { Text = "Not Found: " + name };
