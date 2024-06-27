@@ -8,8 +8,8 @@
         x:DataType="vm:MainWindowViewModel"
         Icon="/Assets/avalonia-logo.ico"
         Title="HelloItQuantum"
-		MinWidth="900"
-		MinHeight="500">
+		MinWidth="1000"
+		MinHeight="700">
 
     <Design.DataContext>
         <!-- This only sets the DataContext for the previewer in an IDE,
