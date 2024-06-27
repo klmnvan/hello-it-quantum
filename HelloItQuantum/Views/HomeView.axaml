@@ -7,4 +7,29 @@
 			 x:DataType="vm:MainWindowViewModel"
 			 xmlns:vm="using:HelloItQuantum.ViewModels">
 	
+	<UserControl.Styles>
+		<Style Selector="Button">
+			<Setter Property="FontFamily" Value="{StaticResource BankGothicMediumRUS}"/>
+			<Setter Property="FontSize" Value="40"/>
+			<Setter Property="Foreground" Value="White"/>
+			<Setter Property="CornerRadius" Value="20"/>
+			<Setter Property="HorizontalContentAlignment" Value="Center"/>
+			<Setter Property="VerticalContentAlignment" Value="Center"/>
+			<Setter Property="VerticalAlignment" Value="Stretch"/>
+			<Setter Property="HorizontalAlignment" Value="Stretch"/>
+		</Style>
+	</UserControl.Styles>
+
+	<Panel>
+		<Image Source="/Assets/ImgHomeView/bg.png" Stretch="Fill"/>
+		<Grid ColumnDefinitions="1*,3*,1*,3*,1*" RowDefinitions="*,200,20,140,20,70,*">
+			<StackPanel Grid.Column="1" Grid.RowSpan="7" VerticalAlignment="Center" HorizontalAlignment="Stretch">
+				<Image Source="/Assets/ImgHomeView/logoIT.png" MaxWidth="600"/>
+			</StackPanel>
+			<Button Grid.Column="3" Grid.Row="1" Content="Играть" Command="{Binding HomeVM.ClickPlay}" Background="#006838"/>
+			<Button Grid.Column="3" Grid.Row="3" Content="Прогресс" Command="{Binding HomeVM.ClickStatistic}" Background="#F26527"/>
+			<Button Grid.Column="3" Grid.Row="5" Content="Выйти" Command="{Binding HomeVM.ClickExit}" Background="#B21E22"/>
+		</Grid>
+	</Panel>
+	
 </UserControl>

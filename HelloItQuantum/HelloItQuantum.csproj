@@ -20,6 +20,7 @@
     <None Remove="Assets\AltF4.svg" />
     <None Remove="Assets\Backspace.svg" />
     <None Remove="Assets\BankGothicMediumRUS.ttf" />
+    <None Remove="Assets\bg.png" />
     <None Remove="Assets\CtrlC.svg" />
     <None Remove="Assets\CtrlV.svg" />
     <None Remove="Assets\Del.svg" />
@@ -57,6 +58,7 @@
     <None Remove="Assets\ImgCreateFriend\foot1.svg" />
     <None Remove="Assets\ImgCreateFriend\foot2.svg" />
     <None Remove="Assets\ImgCreateFriend\no_shift.svg" />
+    <None Remove="Assets\ImgHomeView\logoIT.png" />
     <None Remove="Assets\img_friend.png" />
     <None Remove="Assets\kvanlogo.png" />
     <None Remove="Assets\voice1.mp3" />

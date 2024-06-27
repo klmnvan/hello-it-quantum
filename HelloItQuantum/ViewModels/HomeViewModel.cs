@@ -1,13 +1,27 @@
-using System;
-using System.Collections.Generic;
+using Avalonia.Controls.ApplicationLifetimes;
+using HelloItQuantum.Views;
 using Avalonia.Controls;
-using HelloItQuantum.Navigation;
-using ReactiveUI;
 
 namespace HelloItQuantum.ViewModels
 {
 	public class HomeViewModel : MainWindowViewModel
 	{
+		public void ClickPlay()
+		{
+			PlaySectionVM = new PlaySectionViewModel();
+			PageSwitch.View = new PlaySectionView();
+		}
 
-    }
+		public void ClickStatistic()
+		{
+			//PageSwitch.View = new UserControl();
+		}
+
+		public void ClickExit()
+		{
+			Window window = (App.Current.ApplicationLifetime as IClassicDesktopStyleApplicationLifetime)?.MainWindow;
+			if (window != null)
+				window.Close();
+		}
+	}
 }

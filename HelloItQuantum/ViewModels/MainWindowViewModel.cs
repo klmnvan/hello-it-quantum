@@ -3,17 +3,17 @@
 	public class MainWindowViewModel : ViewModelBase
 	{
 		#region ViewModel-objects
-		static PlaySectionViewModel playSectionViewModel = new PlaySectionViewModel();
+		static HomeViewModel homeVM = new HomeViewModel();
+		public static HomeViewModel HomeVM { get => homeVM; set => homeVM = value; }
 
-        static HomeViewModel homeViewModel = new HomeViewModel();
+		static PlaySectionViewModel? playSectionVM;
+		public static PlaySectionViewModel PlaySectionVM { get => playSectionVM; set => playSectionVM = value; }
 
-        static GameCreateFriendViewModel? gameCreateFriendViewModel;
+		static GameCreateFriendViewModel? gameCreateFriendVM;
+		public static GameCreateFriendViewModel GameCreateFriendVM { get => gameCreateFriendVM; set => gameCreateFriendVM = value; }
 
-        static HotkeysViewModel hotkeysViewModel = new HotkeysViewModel();
-		public static HomeViewModel HomeVM { get => homeViewModel; set => homeViewModel = value; }
-        public static PlaySectionViewModel PlaySectionVM { get => playSectionViewModel; set => playSectionViewModel = value; }
-		public static GameCreateFriendViewModel GameCreateFriendVM { get => gameCreateFriendViewModel; set => gameCreateFriendViewModel = value; }
-        public static HotkeysViewModel HotkeysVM { get => hotkeysViewModel; set => hotkeysViewModel = value; }
-        #endregion
-    }
+		static HotkeysViewModel hotkeysVM = new HotkeysViewModel();
+        public static HotkeysViewModel HotkeysVM { get => hotkeysVM; set => hotkeysVM = value; }
+		#endregion
+	}
 }

@@ -97,22 +97,24 @@ namespace HelloItQuantum.ViewModels
 
 		public void UpdateNavigate(int id)
 		{
+			int element = ListElements[id].SelectedElementIndex;
 			pChildrens.Children[id].Margin = new Thickness(0, 0, 0, 0);
-			if (ListElements[id].SelectedElementIndex >= 3 && ListElements[id].SelectedElementIndex <= 6)
+			if (element >= 3 && element <= 6)
 			{
+				int margin = (element == 3 || element == 4) ? 27 : 24;
 				switch (ListElements[id].SelectedNavigateOne)
 				{
 					case 1:
 						pChildrens.Children[id].HorizontalAlignment = HorizontalAlignment.Left;
-						pChildrens.Children[id].Margin = new Thickness(26, 0, 0, 0);
+						pChildrens.Children[id].Margin = new Thickness(margin, 0, 0, 0);
 						break;
 					case 2:
 						pChildrens.Children[id].HorizontalAlignment = HorizontalAlignment.Right;
-						pChildrens.Children[id].Margin = new Thickness(0, 0, 26, 0);
+						pChildrens.Children[id].Margin = new Thickness(0, 0, margin, 0);
 						break;
 					default: pChildrens.Children[id].HorizontalAlignment = HorizontalAlignment.Center; break;
 				}
-				if (ListElements[id].SelectedElementIndex == 5 || ListElements[id].SelectedElementIndex == 6)
+				if (element == 5 || element == 6)
 				{
 					switch (ListElements[id].SelectedNavigateTwo)
 					{

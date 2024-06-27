@@ -20,8 +20,8 @@
 		</Style>
 	</UserControl.Styles>
 
-	<ScrollViewer>
-		<StackPanel Background="#006838">
+	<ScrollViewer>	
+		<StackPanel Background="#006838">		
 			<Grid ColumnDefinitions="auto, auto" RowDefinitions="*, auto" Margin="20" HorizontalAlignment="Center">
 
 				<Grid Grid.Column="0" Grid.Row="0" ColumnDefinitions="200, 20, 140, 20, 300, 30" RowDefinitions="auto, 20, *">
