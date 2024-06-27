@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Drawing.Printing;
+using System.Xml.Linq;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.Shapes;
@@ -80,6 +81,16 @@ namespace HelloItQuantum.ViewModels
 			else
 			{
 				PageSwitch.View = new PlaySectionView();
+			}
+		}
+
+		public void Delete(int id)
+		{
+			pChildrens.Children.RemoveAt(id);
+			ListElements.RemoveAt(id);
+			for (int i = 0; i < ListElements.Count; i++)
+			{
+				ListElements[i].Id = i;
 			}
 		}
 

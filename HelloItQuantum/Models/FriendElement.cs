@@ -65,5 +65,10 @@ namespace HelloItQuantum.Models
 			get => isVisibleNavigateTwo;
 			set => SetProperty(ref isVisibleNavigateTwo, value);
 		}
+
+		public void Delete()
+		{
+			GameCreateFriendVM.Delete(Id);
+		}
 	}
 }
