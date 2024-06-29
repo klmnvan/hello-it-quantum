@@ -14,6 +14,9 @@
 
 		static HotkeysViewModel hotkeysVM = new HotkeysViewModel();
         public static HotkeysViewModel HotkeysVM { get => hotkeysVM; set => hotkeysVM = value; }
+        
+        static LabyrinthViewModel labyrinthVM = new LabyrinthViewModel();
+		public static LabyrinthViewModel LabyrinthVM { get => labyrinthVM; set => labyrinthVM = value; }
 		#endregion
 	}
 }

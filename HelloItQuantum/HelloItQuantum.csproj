@@ -96,4 +96,9 @@
     <PackageReference Include="System.Windows.Extensions" Version="8.0.0" />
     <PackageReference Include="TruDan.Avalonia.ExtendedToolkit" Version="0.9.5.1" />
   </ItemGroup>
+
+
+  <ItemGroup>
+    <Folder Include="Assets\ImgLabyrinth\" />
+  </ItemGroup>
 </Project>

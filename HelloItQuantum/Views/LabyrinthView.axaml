@@ -1,0 +1,128 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="HelloItQuantum.Views.LabyrinthView"
+			 x:DataType="vm:MainWindowViewModel"
+			 xmlns:vm="using:HelloItQuantum.ViewModels"
+			 Background="#CCD7EB"
+			 >
+	<UserControl.Styles>
+		<Style Selector="TextBlock">
+			<Setter Property="FontFamily" Value="{StaticResource BankGothicMediumRUS}"/>
+			<Setter Property="FontSize" Value="26"/>
+		</Style>
+		<Style Selector="Button">
+			<Setter Property="FontFamily" Value="{StaticResource BankGothicMediumRUS}"/>
+			<Setter Property="FontSize" Value="26"/>
+			<Setter Property="CornerRadius" Value="10"/>
+			<Setter Property="HorizontalContentAlignment" Value="Center"/>
+		</Style>
+
+		<Style Selector="ComboBox">
+			<Setter Property="Background" Value="#E6EFD8"/>
+			<Setter Property="CornerRadius" Value="10"/>
+			<Setter Property="VerticalAlignment" Value="Center"/>
+			<Setter Property="BorderBrush" Value="Transparent"/>
+		</Style>
+	</UserControl.Styles>
+
+	<StackPanel>
+
+
+
+
+
+		<Grid ColumnDefinitions="*,*,2*" RowDefinitions="*">
+
+			<!--Область "кода"-->
+			<Panel Grid.Column="0" Grid.Row="0" >
+				<Border  Background="#F26527" CornerRadius="15"
+					Margin="20,25,20,30">
+					<ScrollViewer>
+						<TextBlock Margin="20" TextAlignment="Center" Text="            " />
+					</ScrollViewer>
+				</Border>
+			</Panel>
+			<!--Область кнопок-->
+			<Panel Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Height="450">
+
+				<Border  CornerRadius="15"
+					Margin="0,25,0,30">
+					<StackPanel Orientation="Vertical" >
+						<StackPanel Orientation="Horizontal" VerticalAlignment="Top" >
+							<Button Width="40" CornerRadius="10000" Padding="1" Margin="0,0,5,0">
+								<Image Source="/Assets/ImgLabyrinth/img_left.png"/>
+							</Button>
+							<Button Width="150" FontSize="24" Background="#F26527">go left</Button>
+						</StackPanel>
+						<StackPanel Margin="0,10,0,0" Orientation="Horizontal" VerticalAlignment="Top" >
+							<Button Width="40" CornerRadius="10000" Padding="1" Margin="0,0,5,0">
+								<Image Source="/Assets/ImgLabyrinth/img_right.png"/>
+							</Button>
+							<Button Width="150" FontSize="24" Background="#F26527">go right</Button>
+						</StackPanel>
+						<StackPanel Margin="0,10,0,0" Orientation="Horizontal" VerticalAlignment="Top" >
+							<Button Width="40" CornerRadius="10000" Padding="1" Margin="0,0,5,0">
+								<Image Source="/Assets/ImgLabyrinth/img_up.png"/>
+							</Button>
+							<Button Width="150" FontSize="24" Background="#F26527">go up</Button>
+						</StackPanel>
+						<StackPanel Margin="0,10,0,0" Orientation="Horizontal" VerticalAlignment="Top" >
+							<Button Width="40" CornerRadius="10000" Padding="1" Margin="0,0,5,0">
+								<Image Source="/Assets/ImgLabyrinth/img_down.png"/>
+							</Button>
+							<Button Width="150" FontSize="24" Background="#F26527">go  down</Button>
+						</StackPanel>
+
+						<!--Кнопка Запустить-->
+						<Border CornerRadius="20" Background="#00A659" BoxShadow="0 5 #006838" Margin="0 20 0 0" HorizontalAlignment="Right" Height="40" Width="200"
+								IsVisible="True">
+							<Button VerticalContentAlignment="Center"
+									 CommandParameter="Нет" CornerRadius="20" Height="40" Width="200">
+								<TextBlock Text="Запустить" TextAlignment="Center" FontSize="24" Foreground="#FFFFFF" />
+							</Button>
+						</Border>
+						<!--Кнопка Очистить-->
+						<Border CornerRadius="20" Background="#F26527" BoxShadow="0 5 #803717" Margin="-10 20 0 0" HorizontalAlignment="Right" Height="40" Width="200"
+								IsVisible="True">
+							<Button VerticalContentAlignment="Center"
+									 CommandParameter="Нет" CornerRadius="20" Height="40" Width="200">
+								<TextBlock Text="Очистить" TextAlignment="Center" FontSize="24" Foreground="#FFFFFF" />
+							</Button>
+						</Border>
+						<!--Кнопка Выйти-->
+						<Border CornerRadius="20" Background="#B21E22" BoxShadow="0 5 #470C0D" Margin="-10 20 0 0" HorizontalAlignment="Right" Height="40" Width="200"
+								IsVisible="True">
+							<Button VerticalContentAlignment="Center"
+									 CommandParameter="Нет" CornerRadius="20" Height="40" Width="200">
+								<TextBlock Text="Выйти" TextAlignment="Center" FontSize="24" Foreground="#FFFFFF" />
+							</Button>
+						</Border>
+						
+						
+						
+						
+						
+					</StackPanel>
+
+				</Border>
+
+
+			</Panel>
+			<!--Область "поля"-->
+			<Panel Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center" Height="450">
+				<Border  Background="#F26527" CornerRadius="15"
+					Margin="0,25,40,30">
+					<TextBlock TextAlignment="Center"/>
+				</Border>
+			</Panel>
+
+		</Grid>
+
+		<StackPanel>
+
+		</StackPanel>
+	</StackPanel>
+</UserControl>
