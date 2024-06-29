@@ -3,11 +3,11 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="1200" d:DesignHeight="800"
-             x:Class="HelloItQuantum.Views.AuthView"
+             x:Class="HelloItQuantum.Views.CreateProfileView"
 			 x:DataType="vm:MainWindowViewModel"
 			 xmlns:vm="using:HelloItQuantum.ViewModels"
 			 Background="#B4E3F0">
-
+	
 	<UserControl.Styles>
 		<Style Selector="TextBlock">
 			<Setter Property="FontFamily" Value="{StaticResource BankGothicMediumRUS}" />
@@ -44,21 +44,31 @@
 			</Panel>
 			<StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="0 40 40 0">
 				<TextBlock VerticalAlignment="Stretch" FontSize="40"
-						   Foreground="#0534B5" HorizontalAlignment="Center" Text="Авторизация"/>
-				<Border CornerRadius="20" Background="#0532AC" BoxShadow="0 5 #031952" 
+						   Foreground="#0534B5" HorizontalAlignment="Center" Text="Создание профиля"/>
+				<Border CornerRadius="20" Background="#0532AC" BoxShadow="0 5 #031952"
 						HorizontalAlignment="Stretch" Margin="0 35 0 0">
-					<TextBox Background="Transparent" BorderBrush="Transparent" CornerRadius="20" Text="{Binding AuthVM.Nickname}"
+					<TextBox Background="Transparent" BorderBrush="Transparent" CornerRadius="20" Text="{Binding CreateProfileVM.Nickname}"
 							 FontSize="40" Foreground="#FFFFFF" Padding="25 15" Watermark="Никнейм"/>
+				</Border>
+				<Border CornerRadius="20" Background="#0532AC" BoxShadow="0 5 #031952"
+						HorizontalAlignment="Stretch" Margin="0 20 0 0">
+					<TextBox Background="Transparent" BorderBrush="Transparent" CornerRadius="20" Text="{Binding CreateProfileVM.Name}"
+							 FontSize="40" Foreground="#FFFFFF" Padding="25 15" Watermark="Имя"/>
+				</Border>
+				<Border CornerRadius="20" Background="#0532AC" BoxShadow="0 5 #031952"
+						HorizontalAlignment="Stretch" Margin="0 20 0 0">
+					<TextBox Background="Transparent" BorderBrush="Transparent" CornerRadius="20" Text="{Binding CreateProfileVM.Surname}"
+							 FontSize="40" Foreground="#FFFFFF" Padding="25 15" Watermark="Фамилия"/>
 				</Border>
 				<Border CornerRadius="20" Background="#00A659" BoxShadow="0 5 #006838" Margin="0 20 0 0" HorizontalAlignment="Stretch"
 										IsVisible="{Binding HotkeysVM.VisibleBtnNext}">
 					<Button VerticalContentAlignment="Center" HorizontalAlignment="Stretch"
-							Command="{Binding AuthVM.Auth}" CommandParameter="Далее" CornerRadius="20">
-						<TextBlock Text="Войти" TextAlignment="Center" FontSize="34" Foreground="#FFFFFF" Margin="25 15"/>
+							Command="{Binding CreateProfileVM.CreateProfile}" CommandParameter="Далее" CornerRadius="20">
+						<TextBlock Text="Создать" TextAlignment="Center" FontSize="34" Foreground="#FFFFFF" Margin="25 15"/>
 					</Button>
 				</Border>
-				<Button Content="Нет профиля" Background="Transparent" Foreground="#B21E22" FontSize="30" HorizontalAlignment="Right"
-										Command="{Binding AuthVM.CreateProfile}" >
+				<Button Content="Есть профиль" Background="Transparent" Foreground="#B21E22" FontSize="30" HorizontalAlignment="Right"
+										Command="{Binding CreateProfileVM.Auth}">
 					<Button.Styles>
 						<Style Selector="Button:pointerover/template/ContentPresenter">
 							<Setter Property="Background" Value="Transparent" />
@@ -68,6 +78,5 @@
 			</StackPanel>
 		</Grid>
 	</StackPanel>
-	
 	
 </UserControl>

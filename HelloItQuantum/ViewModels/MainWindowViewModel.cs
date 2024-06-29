@@ -9,6 +9,9 @@
         static AuthViewModel authVM = new AuthViewModel();
         public static AuthViewModel AuthVM { get => authVM; set => authVM = value; }
 
+        static CreateProfileViewModel createProfileVM = new CreateProfileViewModel();
+        public static CreateProfileViewModel CreateProfileVM { get => createProfileVM; set => createProfileVM = value; }
+
         static PlaySectionViewModel? playSectionVM;
 		public static PlaySectionViewModel PlaySectionVM { get => playSectionVM; set => playSectionVM = value; }
 

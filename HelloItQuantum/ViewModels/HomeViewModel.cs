@@ -19,9 +19,11 @@ namespace HelloItQuantum.ViewModels
 
 		public void ClickExit()
 		{
-			Window window = (App.Current.ApplicationLifetime as IClassicDesktopStyleApplicationLifetime)?.MainWindow;
+            AuthVM = new AuthViewModel();
+            PageSwitch.View = new AuthView();
+            /*Window window = (App.Current.ApplicationLifetime as IClassicDesktopStyleApplicationLifetime)?.MainWindow;
 			if (window != null)
-				window.Close();
-		}
+				window.Close();*/
+        }
 	}
 }
