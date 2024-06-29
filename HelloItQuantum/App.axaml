@@ -17,7 +17,7 @@
     </Application.Styles>
 
 	<Application.Resources>
-		<FontFamily x:Key="BankGothicMediumRUS">avares://HelloItQuantum/Assets/BankGothicMediumRUS.ttf#</FontFamily>
+		<FontFamily x:Key="BankGothicMediumRUS">avares://HelloItQuantum/Assets/Fonts/BankGothicMediumRUS.ttf#</FontFamily>
 	</Application.Resources>
 	
 </Application>

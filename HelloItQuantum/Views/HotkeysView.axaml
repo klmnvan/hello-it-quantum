@@ -39,10 +39,10 @@
 			<Grid ColumnDefinitions="0.7*,*" RowDefinitions="*" Width="{Binding $parent[StackPanel].Bounds.Width}">
 				<Panel Grid.Column="0" Grid.Row="0" Height="{Binding $parent[StackPanel].Bounds.Height}">
 					<StackPanel VerticalAlignment="Center" IsVisible="{Binding HotkeysVM.VisibleSvgHotkey}">
-						<Svg Path="/Assets/Робот.svg" Margin="0 0" VerticalAlignment="Center"/>
+						<Svg Path="/Assets/ImgHotkeys/Робот.svg" Margin="0 0" VerticalAlignment="Center"/>
 					</StackPanel>
 					<Grid RowDefinitions="5*, 2*" VerticalAlignment="Center" IsVisible="{Binding !HotkeysVM.VisibleSvgHotkey}" Margin="0 20">
-						<Svg Grid.Row="0" Path="/Assets/Робот.svg" VerticalAlignment="Center"/>
+						<Svg Grid.Row="0" Path="/Assets/ImgHotkeys/Робот.svg" VerticalAlignment="Center"/>
 						<Svg Grid.Row="1" Path="{Binding HotkeysVM.PathSvgHotkey}" Margin="100 0"/>
 					</Grid>
 
@@ -50,13 +50,13 @@
 
 				<StackPanel Grid.Column="1" Grid.Row="0" Margin="0 30 50 25" VerticalAlignment="Stretch">
 					<StackPanel.Background>
-						<ImageBrush Source="/Assets/Диалоговое_окно.png" Stretch="Fill"/>
+						<ImageBrush Source="/Assets/ImgHotkeys/Диалоговое_окно.png" Stretch="Fill"/>
 					</StackPanel.Background>
 
 					<Grid ColumnDefinitions="0.1*,0.2*,0.05*,*,0.1*" RowDefinitions="45,*,30" VerticalAlignment="Stretch" >
 						<StackPanel Grid.Column="1" Grid.Row="1" >
 							<Button Command="{Binding HotkeysVM.PlayTask}" VerticalAlignment="Top" CornerRadius="10000" Padding="1">
-								<Image Source="/Assets/КнопкаPlay.png"/>
+								<Image Source="/Assets/ImgHotkeys/КнопкаPlay.png"/>
 							</Button>
 							<TextBlock Text="{Binding HotkeysVM.TextShowAct}" TextAlignment="Center" FontSize="24" Foreground="#0534B5"/>
 						</StackPanel>
