@@ -41,7 +41,24 @@
 				<Border  Background="#F26527" CornerRadius="15"
 					Margin="20,25,20,30">
 					<ScrollViewer>
-						<TextBlock Margin="20" TextAlignment="Center" Text="            " />
+
+						<StackPanel Margin="10">
+							<Button Content="Добавить" FontSize="20" Command="{Binding LabyrinthVM.AddRowCommand}"/>
+
+							<ItemsControl >
+								<ItemsControl.ItemTemplate>
+									<DataTemplate>
+										<StackPanel Orientation="Horizontal" Margin="5">
+											<TextBlock FontSize="10" Margin="5"/>
+											<!-- Другие элементы шаблона строки -->
+										</StackPanel>
+									</DataTemplate>
+								</ItemsControl.ItemTemplate>
+							</ItemsControl>
+						</StackPanel>
+						
+						
+						
 					</ScrollViewer>
 				</Border>
 			</Panel>
