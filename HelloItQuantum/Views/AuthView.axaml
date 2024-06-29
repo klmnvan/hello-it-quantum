@@ -1,0 +1,73 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="1200" d:DesignHeight="800"
+             x:Class="HelloItQuantum.Views.AuthView"
+			 x:DataType="vm:MainWindowViewModel"
+			 xmlns:vm="using:HelloItQuantum.ViewModels"
+			 Background="#B4E3F0">
+
+	<UserControl.Styles>
+		<Style Selector="TextBlock">
+			<Setter Property="FontFamily" Value="{StaticResource BankGothicMediumRUS}" />
+		</Style>
+		<Style Selector="Button">
+			<Setter Property="FontFamily" Value="{StaticResource BankGothicMediumRUS}" />
+		</Style>
+		<Style Selector="TextBox">
+			<Setter Property="FontFamily" Value="{StaticResource BankGothicMediumRUS}" />
+		</Style>
+		<Style Selector="Button:pointerover/template/ContentPresenter">
+			<Setter Property="Background" Value="#013E21" />
+		</Style>
+		<Style Selector="TextBox:pointerover/template/Border">
+			<Setter Property="Background" Value="#0532AC" />
+			<Setter Property="BorderBrush" Value="Transparent" />
+			<Setter Property="CornerRadius" Value="20" />
+		</Style>
+		<Style Selector="TextBox:focus/template/Border">
+			<Setter Property="Background" Value="#0532AC" />
+			<Setter Property="BorderBrush" Value="Transparent" />
+			<Setter Property="CornerRadius" Value="20" />
+		</Style>
+	</UserControl.Styles>
+
+	<StackPanel>
+		<Grid ColumnDefinitions="Auto, 8*" Height="{Binding $parent[StackPanel].Bounds.Height}">
+			<Panel Grid.Column="0" VerticalAlignment="Stretch">
+				<Image Source="/Assets/ImgAuth/фонAuth.png" Height="{Binding $parent[Grid].Bounds.Height}" HorizontalAlignment="Left"/>
+				<Grid RowDefinitions="4*, 8*, 4*" ColumnDefinitions="2*, 8*, 5*">
+					<Svg Grid.Row="1"  Grid.Column="1"
+						Path="/Assets/ImgAuth/ItKvantumLogoAuth.svg" HorizontalAlignment="Center" Margin="0 0 160 0"/>
+				</Grid>
+			</Panel>
+			<StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="0 40 40 0">
+				<TextBlock VerticalAlignment="Stretch" FontSize="40" Name="MyTextBlock"
+						   Foreground="#0534B5" HorizontalAlignment="Center" Text="Авторизация"/>
+				<Border CornerRadius="20" Background="#0532AC" BoxShadow="0 5 #031952" 
+						HorizontalAlignment="Stretch" Margin="0 20 0 0">
+					<TextBox Background="Transparent" BorderBrush="Transparent" CornerRadius="20" Text="{Binding AuthVM}"
+							 FontSize="40" Foreground="#FFFFFF" Padding="25 15" Watermark="Никнейм"/>
+				</Border>
+				<Border CornerRadius="20" Background="#00A659" BoxShadow="0 5 #006838" Margin="0 20 0 0" HorizontalAlignment="Stretch"
+										IsVisible="{Binding HotkeysVM.VisibleBtnNext}">
+					<Button VerticalContentAlignment="Center" HorizontalAlignment="Stretch"
+							Command="{Binding HotkeysVM.GoNext}" CommandParameter="Далее" CornerRadius="20">
+						<TextBlock Text="Войти" TextAlignment="Center" FontSize="40" Foreground="#FFFFFF" Margin="25 15"/>
+					</Button>
+				</Border>
+				<Button Content="Нет профиля" Background="Transparent" Foreground="#B21E22" FontSize="30" HorizontalAlignment="Right"
+										Command="{Binding HotkeysVM.GoNext}" CommandParameter="Забыл" >
+					<Button.Styles>
+						<Style Selector="Button:pointerover/template/ContentPresenter">
+							<Setter Property="Background" Value="Transparent" />
+						</Style>
+					</Button.Styles>
+				</Button>
+			</StackPanel>
+		</Grid>
+	</StackPanel>
+	
+	
+</UserControl>

@@ -6,7 +6,10 @@
 		static HomeViewModel homeVM = new HomeViewModel();
 		public static HomeViewModel HomeVM { get => homeVM; set => homeVM = value; }
 
-		static PlaySectionViewModel? playSectionVM;
+        static AuthViewModel authVM = new AuthViewModel();
+        public static AuthViewModel AuthVM { get => authVM; set => authVM = value; }
+
+        static PlaySectionViewModel? playSectionVM;
 		public static PlaySectionViewModel PlaySectionVM { get => playSectionVM; set => playSectionVM = value; }
 
 		static GameCreateFriendViewModel? gameCreateFriendVM;

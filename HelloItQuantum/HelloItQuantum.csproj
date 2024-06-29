@@ -50,6 +50,7 @@
     <None Remove="Assets\icon_comands.svg" />
     <None Remove="Assets\icon_create_friend.svg" />
     <None Remove="Assets\icon_labyrinth.svg" />
+    <None Remove="Assets\ImgAuth\фонAuth.svg" />
     <None Remove="Assets\ImgCreateFriend\body.svg" />
     <None Remove="Assets\ImgCreateFriend\delete.svg" />
     <None Remove="Assets\ImgCreateFriend\eye.svg" />
