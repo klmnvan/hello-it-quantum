@@ -9,6 +9,9 @@
         static AuthViewModel authVM = new AuthViewModel();
         public static AuthViewModel AuthVM { get => authVM; set => authVM = value; }
 
+        static ProgressViewModel progressVM = new ProgressViewModel();
+        public static ProgressViewModel ProgressVM { get => progressVM; set => progressVM = value; }
+
         static CreateProfileViewModel createProfileVM = new CreateProfileViewModel();
         public static CreateProfileViewModel CreateProfileVM { get => createProfileVM; set => createProfileVM = value; }
 

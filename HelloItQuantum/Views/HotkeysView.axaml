@@ -60,10 +60,10 @@
 							</Button>
 							<TextBlock Text="{Binding HotkeysVM.TextShowAct}" TextAlignment="Center" FontSize="24" Foreground="#0534B5"/>
 						</StackPanel>
-						<StackPanel Grid.Column="3" Grid.Row="1" Background="" Name="spText">
+						<StackPanel Grid.Column="3" Grid.Row="1" Background="">
 							<ScrollViewer VerticalAlignment="Stretch">
 								<!--Текст-->
-								<TextBlock VerticalAlignment="Stretch" FontSize="40" Name="MyTextBlock"
+								<TextBlock VerticalAlignment="Stretch" FontSize="40"
 										   TextWrapping="Wrap" Foreground="#0534B5" HorizontalAlignment="Stretch"
 										   Text="{Binding HotkeysVM.TextInSP}">
 								</TextBlock>

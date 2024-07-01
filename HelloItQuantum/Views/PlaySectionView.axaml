@@ -31,7 +31,6 @@
 					<Button HorizontalAlignment="Stretch" VerticalAlignment="Stretch" VerticalContentAlignment="Center"
 							Command="{Binding PlaySectionVM.GoCommands}" CornerRadius="40">
 						<StackPanel>
-							<ProgressBar Margin="30 20" Height="20" Minimum="0" Maximum="100" Value="14" Foreground="#0534B5" Background="#FFFFFF" ShowProgressText="True"/>
 							<Svg Path="/Assets/ImgPlaySection/icon_comands.svg" Margin="30 20"/>
 							<Border Background="White" BorderThickness="1" HorizontalAlignment="Stretch" Margin="30 0 30 10"/>
 							<TextBlock Text="Комманды" FontSize="24" TextAlignment="Center" Foreground="#FFFFFF" Margin="0 0 0 30"/>

@@ -14,14 +14,16 @@ namespace HelloItQuantum.ViewModels
 
 		public void ClickStatistic()
 		{
-			//PageSwitch.View = new UserControl();
-		}
+            ProgressVM = new ProgressViewModel();
+            PageSwitch.View = new ProgressView();
+        }
 
 		public void ClickExit()
 		{
             AuthVM = new AuthViewModel();
             PageSwitch.View = new AuthView();
-            /*Window window = (App.Current.ApplicationLifetime as IClassicDesktopStyleApplicationLifetime)?.MainWindow;
+            /* //Это код для закрытия программы
+             * Window window = (App.Current.ApplicationLifetime as IClassicDesktopStyleApplicationLifetime)?.MainWindow;
 			if (window != null)
 				window.Close();*/
         }
