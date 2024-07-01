@@ -59,5 +59,23 @@ namespace HelloItQuantum.Function
 			}
 			return true;
 		}
+
+
+		static public void UpdateValueGameProgress(int game, int value, User currentUser)
+		{
+            List<User>? users = GetAllUsers();
+			users.Remove(currentUser);
+			if (game == 1) currentUser.GameHotkeys = value;
+			if (game == 2) currentUser.GameLabyrinth = value;
+			if (game == 3) currentUser.GameCreateFriend = value;
+            users.Add(currentUser);
+            using (StreamWriter writer = new StreamWriter(filePath, false))
+            {
+				foreach (User newUser in users)
+				{
+                    writer.WriteLine($"{newUser.Nickname};{newUser.Name};{newUser.Surname};{newUser.GameHotkeys};{newUser.GameCreateFriend};{newUser.GameLabyrinth}");
+                }
+            }
+        }
 	}
 }

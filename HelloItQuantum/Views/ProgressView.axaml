@@ -15,7 +15,7 @@
 	</UserControl.Styles>
 
 	<Panel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-		<Button Command="{Binding HotkeysVM.GoBack}" Width="50" Height="50" VerticalAlignment="Top" CornerRadius="10000" Padding="1" Margin="20 20 0 0">
+		<Button Command="{Binding ProgressVM.GoBack}" Width="50" Height="50" VerticalAlignment="Top" CornerRadius="10000" Padding="1" Margin="20 20 0 0">
 			<Image Source="/Assets/КнопкаНазад.png"/>
 		</Button>
 		<Grid ColumnDefinitions="2*, 13*, 2*" RowDefinitions="*,15,*,15,*" Width="{Binding $parent[Panel].Bounds.Width}" Margin="0 30">
@@ -29,7 +29,7 @@
 							<TextBlock Text="Игра Комманды" FontSize="24" TextAlignment="Center" Foreground="#FFFFFF" Margin="0 0 0 0"/>
 							<!--Прогрессбар игры Горячие клавиши-->
 							<ProgressBar Margin="0 20 0 0" Height="20" Width="{Binding $parent[StackPanel].Bounds.Width}"
-										 Minimum="0" Maximum="100" Value="14" Foreground="#0534B5" Background="#FFFFFF"
+										 Minimum="0" Maximum="100" Value="{Binding ProgressVM.PbGameHotkeys}" Foreground="#0534B5" Background="#FFFFFF"
 										 ShowProgressText="True"
 										 />
 						</StackPanel>
@@ -46,7 +46,7 @@
 							<TextBlock Text="Игра Лабиринт" FontSize="24" TextAlignment="Center" Foreground="#FFFFFF" Margin="0 0 0 0"/>
 							<!--Прогрессбар игры Лабиринт-->
 							<ProgressBar Margin="0 20 0 0" Height="20" Width="{Binding $parent[StackPanel].Bounds.Width}"
-										 Minimum="0" Maximum="100" Value="14" Foreground="#973F19" Background="#FFFFFF"
+										 Minimum="0" Maximum="100" Value="{Binding ProgressVM.PbGameLabyrinth}" Foreground="#973F19" Background="#FFFFFF"
 										 ShowProgressText="True"
 									 />
 						</StackPanel>
@@ -63,7 +63,7 @@
 							<TextBlock Text="Игра Создай друга" FontSize="24" TextAlignment="Center" Foreground="#FFFFFF" Margin="0 0 0 0"/>
 							<!--Прогрессбар игры Лабиринт-->
 							<ProgressBar Margin="0 20 0 0" Height="20" Width="{Binding $parent[StackPanel].Bounds.Width}"
-										 Minimum="0" Maximum="100" Value="14" Foreground="#006838" Background="#FFFFFF"
+										 Minimum="0" Maximum="100" Value="{Binding ProgressVM.PbGameCreateFriend}" Foreground="#006838" Background="#FFFFFF"
 										 ShowProgressText="True"
 									 />
 						</StackPanel>

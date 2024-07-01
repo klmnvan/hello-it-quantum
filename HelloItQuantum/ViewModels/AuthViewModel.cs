@@ -28,6 +28,7 @@ namespace HelloItQuantum.ViewModels
                 userNicknames = users.Select(it => it.Nickname).ToList();
                 if (userNicknames.Contains(Nickname))
                 {
+                    CurrentUser = users.FirstOrDefault(it => it.Nickname == Nickname);
                     HomeVM = new HomeViewModel();
                     PageSwitch.View = new HomeView();
                 }

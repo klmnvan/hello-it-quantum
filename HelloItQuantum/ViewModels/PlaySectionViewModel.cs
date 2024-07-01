@@ -23,5 +23,9 @@ namespace HelloItQuantum.ViewModels
 			PageSwitch.View = new GameCreateFriendView();
         }
 
+        public void GoBack()
+        {
+            PageSwitch.View = new HomeView();
+        }
     }
 }

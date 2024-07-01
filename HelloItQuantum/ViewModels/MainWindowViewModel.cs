@@ -1,4 +1,6 @@
-﻿namespace HelloItQuantum.ViewModels
+﻿using HelloItQuantum.Models;
+
+namespace HelloItQuantum.ViewModels
 {
 	public class MainWindowViewModel : ViewModelBase
 	{
@@ -9,7 +11,7 @@
         static AuthViewModel authVM = new AuthViewModel();
         public static AuthViewModel AuthVM { get => authVM; set => authVM = value; }
 
-        static ProgressViewModel progressVM = new ProgressViewModel();
+        static ProgressViewModel progressVM;
         public static ProgressViewModel ProgressVM { get => progressVM; set => progressVM = value; }
 
         static CreateProfileViewModel createProfileVM = new CreateProfileViewModel();
@@ -26,6 +28,9 @@
         
         static LabyrinthViewModel labyrinthVM = new LabyrinthViewModel();
 		public static LabyrinthViewModel LabyrinthVM { get => labyrinthVM; set => labyrinthVM = value; }
-		#endregion
-	}
+
+        static User currentUser;
+        public static User CurrentUser { get => currentUser; set => currentUser = value; }
+        #endregion
+    }
 }

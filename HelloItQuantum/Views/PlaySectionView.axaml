@@ -13,11 +13,8 @@
 		</Style>
 	</UserControl.Styles>
 
-	<Panel>
-		<!--<Image Source="/Assets/фон.png" Stretch="Fill"
-       StretchDirection="Both" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>-->
-		
-		<StackPanel HorizontalAlignment="Stretch" Orientation="Vertical" VerticalAlignment="Stretch" Background="#C8FFF5">
+	<Panel Background="#C8FFF5">
+		<StackPanel HorizontalAlignment="Stretch" Orientation="Vertical" VerticalAlignment="Stretch">
 
 			<Grid ColumnDefinitions="Auto, *" RowDefinitions="*">
 				<Image Grid.Column="0" Grid.Row="0" Source="/Assets/kvanlogo.png" Width="100" Height="100" Margin="30 0 0 0"></Image>
@@ -69,47 +66,14 @@
 				<Rectangle Grid.Column="4" Grid.Row="1" Height="{Binding $parent[Grid].Bounds.Height}" Width="40" Fill="#54230E"/>
 
 			</Grid>
-
-			<!--<Grid ColumnDefinitions="*,*,*" RowDefinitions="*" VerticalAlignment="Stretch" Margin="50 40 50 0" HorizontalAlignment="Center">
-				<Border Grid.Column="0" Grid.Row="0" CornerRadius="10" Background="#0BA5CF" BoxShadow="0 5 #0534B5" VerticalAlignment="Stretch">
-					<Button HorizontalAlignment="Stretch" VerticalAlignment="Stretch" VerticalContentAlignment="Center" 
-							Command="{Binding PlaySectionVM.GoCommands}" CornerRadius="10">
-						<StackPanel>
-							<ProgressBar Margin="30 20" Height="20" Minimum="0" Maximum="100" Value="14" Foreground="#0534B5" Background="#FFFFFF" ShowProgressText="True"/>
-							<Svg Path="/Assets/icon_comands.svg" Margin="80 20"/>
-							<Border Background="White" BorderThickness="1" HorizontalAlignment="Stretch" Margin="30 0 30 10"/>
-							<TextBlock Text="Комманды" FontSize="24" TextAlignment="Center" Foreground="#FFFFFF" Margin="0 0 0 30"/>
-						</StackPanel>
-					</Button>
-				</Border>
-
-				<Border Grid.Column="1" Grid.Row="0" CornerRadius="10" Background="#F26527" BoxShadow="0 5 #973F19" VerticalAlignment="Stretch" >
-					<Button HorizontalAlignment="Stretch" VerticalAlignment="Stretch" VerticalContentAlignment="Center" 
-							Command="{Binding PlaySectionVM.GoLabyrinth}" CornerRadius="10">
-						<StackPanel>
-							<ProgressBar Margin="30 20" Height="20" Minimum="0" Maximum="100" Value="14" Foreground="#973F19" Background="#FFFFFF" ShowProgressText="True"/>
-							<Svg Path="/Assets/icon_labyrinth.svg" Margin="80 20"/>
-							<Border Background="White" BorderThickness="1" HorizontalAlignment="Stretch" Margin="30 0 30 10"/>
-							<TextBlock Text="Лабиринт" FontSize="24" TextAlignment="Center" Foreground="#FFFFFF" Margin="0 0 0 30"/>
-						</StackPanel>
-					</Button>
-				</Border>
-
-				<Border Grid.Column="2" Grid.Row="0" CornerRadius="10" Background="#00A659" BoxShadow="0 5 #006838" VerticalAlignment="Stretch">
-					<Button HorizontalAlignment="Stretch" VerticalAlignment="Stretch" VerticalContentAlignment="Center" 
-							Command="{Binding PlaySectionVM.GoCreateFriend}" CornerRadius="10">
-						<StackPanel>
-							<ProgressBar Margin="30 20" Height="20" Minimum="0" Maximum="100" Value="14" Foreground="#006838" Background="#FFFFFF" ShowProgressText="True"/>
-							<Svg Path="/Assets/icon_create_friend.svg" Margin="80 20"/>
-							<Border Background="White" BorderThickness="1" HorizontalAlignment="Stretch" Margin="30 0 30 10"/>
-							<TextBlock Text="Создай друга" FontSize="24" TextAlignment="Center" Foreground="#FFFFFF" Margin="0 0 0 30"/>
-						</StackPanel>
-					</Button>
-				</Border>
-			</Grid>-->
-
 		</StackPanel>
-
+		<!--Кнопка Далее-->
+		<Border CornerRadius="20" Background="#B21E22" BoxShadow="0 5 #470C0D"
+				Margin="0 20 30 20" HorizontalAlignment="Right" VerticalAlignment="Top">
+			<Button Command="{Binding PlaySectionVM.GoBack}" CornerRadius="20">
+				<TextBlock Text="Выйти" FontSize="28" Foreground="#FFFFFF" Margin="25 15"/>
+			</Button>
+		</Border>
 	</Panel>
 
 </UserControl>
