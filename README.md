@@ -1,6 +1,6 @@
 # Hello It Quantum
 Обучающая программа для детей 5-7 лет для ознакомления с программированием.  
-Макет: https://www.figma.com/design/c4Qv9J8hsPYBfKaHDxltLG/MM-Simulator?node-id=0-1  
+Макет: https://www.figma.com/design/iPpnwAA5hBrZGvX46UyXbu/%D0%9F%D1%80%D0%BE%D0%B5%D0%BA%D1%82-%D0%B4%D0%BB%D1%8F-%D0%BC%D0%B0%D0%BB%D1%8B%D1%88%D0%B0%D1%80%D0%B8%D0%BA%D0%BE%D0%B2?node-id=1-2&t=TtUP2IS58sisij5q-1  
   
 <!-- <img src="https://www.figma.com/design/iPpnwAA5hBrZGvX46UyXbu/%D0%9F%D1%80%D0%BE%D0%B5%D0%BA%D1%82-%D0%B4%D0%BB%D1%8F-%D0%BC%D0%B0%D0%BB%D1%8B%D1%88%D0%B0%D1%80%D0%B8%D0%BA%D0%BE%D0%B2?node-id=1-2&t=8Yybv7ju0xL9Fq0d-1" width="200" alt="HelloItQuantum"/> -->
   
