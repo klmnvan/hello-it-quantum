@@ -10,16 +10,6 @@ namespace HelloItQuantum.ViewModels
 {
     public class LabyrinthViewModel : MainWindowViewModel
     {
-
-        /*private List<NameComand> listCommandForRobots = new List<NameComand>();
-
-        public List<NameComand> ListCommandForRobots { get => listCommandForRobots; set => listCommandForRobots = value; }
-
-        public void AddRight() {
-            ListCommandForRobots.Add(new NameComand { name = "go right" });
-
-        }*/
-
         StackPanel listCommandForRobots = new StackPanel();
         public StackPanel ListCommandForRobots { get => listCommandForRobots; set => SetProperty(ref listCommandForRobots, value); }
 
@@ -28,7 +18,6 @@ namespace HelloItQuantum.ViewModels
             TextBox tb = new TextBox();
             tb.Text = "Прививи";
             ListCommandForRobots.Children.Add(tb);
-
         }
     }
 

@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using HelloItQuantum.Function;
+using HelloItQuantum.Models;
 using HelloItQuantum.Views;
 using ReactiveUI;
 
@@ -21,8 +23,19 @@ namespace HelloItQuantum.ViewModels
         /// </summary>
         public void CreateProfile()
         {
-            AuthVM = new AuthViewModel();
-            PageSwitch.View = new AuthView();
+            var newUser = new User();
+            newUser.Nickname = Nickname;
+            newUser.Name = Name;
+            newUser.Surname = Name;
+            if(WorkWithFile.IsWriteUserInFile(newUser))
+            {
+                AuthVM = new AuthViewModel();
+                PageSwitch.View = new AuthView();
+            }
+            else
+            {
+                //Технические шоколадки
+            }
         }
 
         /// <summary>

@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace HelloItQuantum.Function
 {
-	public class WorkWithFile
+	public static class WorkWithFile
 	{
 		private static string filePath = "user.csv";
 
@@ -14,14 +14,13 @@ namespace HelloItQuantum.Function
 		/// Считывает пользователей из файла
 		/// </summary>
 		/// <returns>Возвращает null - если файл пустой (не существует) или возвращает модель</returns>
-		static public List<User>? ReadFile()
+		static public List<User>? GetAllUsers()
 		{
 			if (!File.Exists(filePath))
 			{
 				FileStream fs = File.Create(filePath);
 				return null;
 			}
-
 			List<User> users = new List<User>();
 			using (StreamReader read = new StreamReader(filePath))
 			{
@@ -46,9 +45,9 @@ namespace HelloItQuantum.Function
 		/// </summary>
 		/// <param name="newUser">Новый пользователь</param>
 		/// <returns>true если пользователь добавлен, false - пользователь уже существует</returns>
-		static public bool WriteFile(User newUser)
+		static public bool IsWriteUserInFile(User newUser)
 		{
-			List<User> users = ReadFile();
+			List<User>? users = GetAllUsers();
 			bool exists = users.Any(item => item.Nickname == newUser.Nickname);
 			if (exists)
 			{
@@ -56,7 +55,7 @@ namespace HelloItQuantum.Function
 			}
 			using (StreamWriter writer = new StreamWriter(filePath, true))
 			{
-				writer.WriteLine(string.Join(";", newUser));
+				writer.WriteLine($"{newUser.Nickname};{newUser.Name};{newUser.Surname};{newUser.GameHotkeys};{newUser.GameCreateFriend};{newUser.GameLabyrinth}");
 			}
 			return true;
 		}
