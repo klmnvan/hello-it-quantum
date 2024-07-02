@@ -47,6 +47,7 @@
     <None Remove="Assets\HotkeysAudio\voice7.wav" />
     <None Remove="Assets\HotkeysAudio\voice8.wav" />
     <None Remove="Assets\HotkeysAudio\voice9.wav" />
+    <None Remove="Assets\icon.ico" />
     <None Remove="Assets\icon_comands.svg" />
     <None Remove="Assets\icon_create_friend.svg" />
     <None Remove="Assets\icon_labyrinth.svg" />
