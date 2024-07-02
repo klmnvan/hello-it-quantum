@@ -19,7 +19,9 @@
 			<Setter Property="CornerRadius" Value="10"/>
 			<Setter Property="HorizontalContentAlignment" Value="Center"/>
 		</Style>
-
+		<Style Selector="TextBox">
+			<Setter Property="FontFamily" Value="{StaticResource BankGothicMediumRUS}" />
+		</Style>
 		<Style Selector="ComboBox">
 			<Setter Property="Background" Value="#E6EFD8"/>
 			<Setter Property="CornerRadius" Value="10"/>
@@ -31,11 +33,13 @@
 	<StackPanel>
 
 
-
-
+		<!---->
+		
 
 		<Grid Height="{Binding $parent[StackPanel].Bounds.Height}" ColumnDefinitions="*,*,2*" RowDefinitions="*">
 
+			<Border  Background="#F26527" CornerRadius="15"
+					Margin="20,25,20,30">
 			<!--Область "кода"-->
 			<Panel Grid.Column="0" Grid.Row="0" >
 					<ScrollViewer>
@@ -45,6 +49,7 @@
 							Margin="10"/>
 					</ScrollViewer>
 			</Panel>
+			</Border>
 			<!--Область кнопок-->
 			<Panel Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Height="450">
 
@@ -55,31 +60,31 @@
 							<Button  Width="40" CornerRadius="10000" Padding="1" Margin="0,0,5,0">
 								<Image Source="/Assets/ImgLabyrinth/img_left.png"/>
 							</Button>
-							<Button  Width="150" FontSize="24" Background="#F26527">go left</Button>
+							<Button Command="{Binding LabyrinthVM.AddButton}" CommandParameter="left" Width="150" FontSize="24" Background="#F26527">go left</Button>
 						</StackPanel>
 						<StackPanel Margin="0,10,0,0" Orientation="Horizontal" VerticalAlignment="Top" >
 							<Button Width="40" CornerRadius="10000" Padding="1" Margin="0,0,5,0">
 								<Image Source="/Assets/ImgLabyrinth/img_right.png"/>
 							</Button>
-							<Button Command="{Binding LabyrinthVM.AddRight}" Width="150" FontSize="24" Background="#F26527">go right</Button>
+							<Button Command="{Binding LabyrinthVM.AddButton}" CommandParameter="right" Width="150" FontSize="24" Background="#F26527">go right</Button>
 						</StackPanel>
 						<StackPanel Margin="0,10,0,0" Orientation="Horizontal" VerticalAlignment="Top" >
 							<Button Width="40" CornerRadius="10000" Padding="1" Margin="0,0,5,0">
 								<Image Source="/Assets/ImgLabyrinth/img_up.png"/>
 							</Button>
-							<Button Width="150" FontSize="24" Background="#F26527">go up</Button>
+							<Button Command="{Binding LabyrinthVM.AddButton}" CommandParameter="up" Width="150" FontSize="24" Background="#F26527">go up</Button>
 						</StackPanel>
 						<StackPanel Margin="0,10,0,0" Orientation="Horizontal" VerticalAlignment="Top" >
 							<Button Width="40" CornerRadius="10000" Padding="1" Margin="0,0,5,0">
 								<Image Source="/Assets/ImgLabyrinth/img_down.png"/>
 							</Button>
-							<Button Width="150" FontSize="24" Background="#F26527">go  down</Button>
+							<Button Command="{Binding LabyrinthVM.AddButton}" CommandParameter="down" Width="150" FontSize="24" Background="#F26527">go down</Button>
 						</StackPanel>
 
 						<!--Кнопка Запустить-->
 						<Border CornerRadius="20" Background="#00A659" BoxShadow="0 5 #006838" Margin="0 20 0 0" HorizontalAlignment="Right" Height="40" Width="200"
 								IsVisible="True">
-							<Button VerticalContentAlignment="Center"
+							<Button Command="{Binding LabyrinthVM.CheckCommand}" VerticalContentAlignment="Center"
 									 CommandParameter="Нет" CornerRadius="20" Height="40" Width="200">
 								<TextBlock Text="Запустить" TextAlignment="Center" FontSize="24" Foreground="#FFFFFF" />
 							</Button>
@@ -87,7 +92,7 @@
 						<!--Кнопка Очистить-->
 						<Border CornerRadius="20" Background="#F26527" BoxShadow="0 5 #803717" Margin="-10 20 0 0" HorizontalAlignment="Right" Height="40" Width="200"
 								IsVisible="True">
-							<Button VerticalContentAlignment="Center"
+							<Button Command="{Binding LabyrinthVM.DeleteCommand}" VerticalContentAlignment="Center"
 									 CommandParameter="Нет" CornerRadius="20" Height="40" Width="200">
 								<TextBlock Text="Очистить" TextAlignment="Center" FontSize="24" Foreground="#FFFFFF" />
 							</Button>
@@ -95,7 +100,7 @@
 						<!--Кнопка Выйти-->
 						<Border CornerRadius="20" Background="#B21E22" BoxShadow="0 5 #470C0D" Margin="-10 20 0 0" HorizontalAlignment="Right" Height="40" Width="200"
 								IsVisible="True">
-							<Button VerticalContentAlignment="Center"
+							<Button Command="{Binding LabyrinthVM.HotkeysVM.GoBack}" VerticalContentAlignment="Center"
 									 CommandParameter="Нет" CornerRadius="20" Height="40" Width="200">
 								<TextBlock Text="Выйти" TextAlignment="Center" FontSize="24" Foreground="#FFFFFF" />
 							</Button>
@@ -170,7 +175,35 @@
 					</StackPanel>
 				</Border>
 			</Panel>
+			<!--Область "поля"-->
+			<Panel  Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="300, 100,10,10" Height="200" IsVisible="{Binding LabyrinthVM.IsVisibleContextWindow}">
+				
+				<StackPanel Width="800">
+					<Image Source="/Assets/ImgLabyrinth/Диалоговое_окно.png"  Stretch="Fill" Margin="0,-60,0,0"/>
+					<!--Текст-->
+					<StackPanel>
+						<Button Height="50" Command="" VerticalAlignment="Top" CornerRadius="10000" Padding="1" Margin="50, -230,0,0">
+							<Image Source="/Assets/ImgHotkeys/КнопкаPlay.png"/>
+						</Button>
+						<TextBlock Text="{Binding LabyrinthVM.TextInSP}" TextWrapping="Wrap" Margin="110, -210,15,20" FontSize="22" Foreground="#0534B5"></TextBlock>
+						<Border CornerRadius="20" Background="#00A659" BoxShadow="0 5 #006838" Margin="0 -130 30 0" HorizontalAlignment="Right" Height="40" Width="200"
+								IsVisible="True">
+							<Button Command="{Binding LabyrinthVM.GoNext}" VerticalContentAlignment="Center"
+									 CommandParameter="Нет" CornerRadius="20" Height="40" Width="200">
+								<TextBlock Text="{Binding LabyrinthVM.TextInBTN}" TextAlignment="Center" FontSize="24" Foreground="#FFFFFF" />
+							</Button>
+						</Border>
+					</StackPanel>
+					<!--Кнопка Далее-->
+					
+				</StackPanel>
+				<StackPanel>
 
+
+				</StackPanel>
+				
+				
+			</Panel>
 		</Grid>
 
 		<StackPanel>
