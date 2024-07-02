@@ -46,10 +46,8 @@ namespace HelloItQuantum.ViewModels
             tb.CornerRadius = new CornerRadius(10);
             tb.Margin = new Thickness(5);
             ListCommandForRobots.Children.Add(tb);
-<<<<<<< HEAD
-=======
             listContent.Add(tb.Text);
->>>>>>> newBranchK
+
         }
         
         public void DeleteCommand() {
