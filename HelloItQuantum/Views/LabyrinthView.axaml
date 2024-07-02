@@ -100,7 +100,7 @@
 						<!--Кнопка Выйти-->
 						<Border CornerRadius="20" Background="#B21E22" BoxShadow="0 5 #470C0D" Margin="-10 20 0 0" HorizontalAlignment="Right" Height="40" Width="200"
 								IsVisible="True">
-							<Button Command="{Binding LabyrinthVM.HotkeysVM.GoBack}" VerticalContentAlignment="Center"
+							<Button Command="{Binding LabyrinthVM.GoBack}" VerticalContentAlignment="Center"
 									 CommandParameter="Нет" CornerRadius="20" Height="40" Width="200">
 								<TextBlock Text="Выйти" TextAlignment="Center" FontSize="24" Foreground="#FFFFFF" />
 							</Button>

@@ -6,6 +6,8 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Media;
 using ExCSS;
+using HelloItQuantum.Function;
+using HelloItQuantum.Views;
 
 
 namespace HelloItQuantum.ViewModels
@@ -30,8 +32,12 @@ namespace HelloItQuantum.ViewModels
             TextInSP = "Здорово! Ракета оказался на исследовательской станции и помог профессору починить лабораторию. Миссия выполнена!";
             IsVisibleContextWindow = false;
         }
-       
-        
+
+        public void GoBack()
+        {
+            PageSwitch.View = new PlaySectionView();
+        }
+
         public void AddButton(string comand)
         {
 			ListCommandForRobots.HorizontalAlignment = Avalonia.Layout.HorizontalAlignment.Center;
@@ -105,6 +111,7 @@ namespace HelloItQuantum.ViewModels
             }
             if (googCommands)
             {
+                WorkWithFile.UpdateValueGameProgress(2, 100, CurrentUser);
                 TextInSP = "Здорово! Ракета оказался на исследовательской станции и помог профессору починить лабораторию. Миссия выполнена!";
                 IsVisibleContextWindow = true;
                 TextInBTN = "Закрыть";
