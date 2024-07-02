@@ -23,7 +23,7 @@ namespace HelloItQuantum.ViewModels
         public void Auth()
         {
             List<User>? users = WorkWithFile.GetAllUsers();
-            if(users.Count != 0)
+            if(users != null)
             {
                 userNicknames = users.Select(it => it.Nickname).ToList();
                 if (userNicknames.Contains(Nickname))

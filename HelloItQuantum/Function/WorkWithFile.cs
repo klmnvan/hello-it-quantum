@@ -25,17 +25,20 @@ namespace HelloItQuantum.Function
 			List<User> users = new List<User>();
 			using (StreamReader read = new StreamReader(filePath))
 			{
-				while (!read.EndOfStream)
+                while (!read.EndOfStream)
 				{
 					string[] row = read.ReadLine().Split(';');
-					User user = new User();
-					user.Nickname = row[0];
-					user.Name = row[1];
-					user.Surname = row[2];
-					user.GameHotkeys = Convert.ToInt32(row[3]);
-					user.GameCreateFriend = Convert.ToInt32(row[4]);
-					user.GameLabyrinth = Convert.ToInt32(row[5]);
-					users.Add(user);
+					if (row.Length == 6)
+					{
+                        User user = new User();
+                        user.Nickname = row[0];
+                        user.Name = row[1];
+                        user.Surname = row[2];
+                        user.GameHotkeys = Convert.ToInt32(row[3]);
+                        user.GameCreateFriend = Convert.ToInt32(row[4]);
+                        user.GameLabyrinth = Convert.ToInt32(row[5]);
+                        users.Add(user);
+                    }
 				}
 			}
 			return users;
