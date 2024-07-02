@@ -30,22 +30,23 @@ namespace HelloItQuantum.ViewModels
             TextInSP = "Здорово! Ракета оказался на исследовательской станции и помог профессору починить лабораторию. Миссия выполнена!";
             IsVisibleContextWindow = false;
         }
-
-        /// <summary>
-        /// Функция запуска аудио
-        /// </summary>
        
         
         public void AddButton(string comand)
         {
-            TextBox tb = new TextBox();
+			ListCommandForRobots.HorizontalAlignment = Avalonia.Layout.HorizontalAlignment.Center;
+			TextBlock tb = new TextBlock();
             tb.Text = "go " + comand;
-            tb.Background = new SolidColorBrush(Avalonia.Media.Color.FromArgb(242, 101, 39, 0));
-            tb.FontSize = 24;
+			tb.TextAlignment = TextAlignment.Center;
+			tb.FontSize = 24;
             tb.Width = 150;
-            tb.CornerRadius = new CornerRadius(10);
-            tb.Margin = new Thickness(5);
-            ListCommandForRobots.Children.Add(tb);
+            tb.Margin = new Thickness(10);
+			Border border = new Border();
+            border.CornerRadius = new CornerRadius(20);
+			border.Background = new SolidColorBrush(Avalonia.Media.Color.FromArgb(242, 101, 39, 0));
+			border.Child = tb;
+			border.Margin = new Thickness(5);
+			ListCommandForRobots.Children.Add(border);
             listContent.Add(tb.Text);
 
         }

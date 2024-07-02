@@ -19,7 +19,8 @@ namespace HelloItQuantum.Function
 		{
 			if (!File.Exists(filePath))
 			{
-				FileStream fs = File.Create(filePath);
+				using (FileStream fs = new FileStream(filePath, FileMode.Create))
+				{}
 				return null;
 			}
 			List<User> users = new List<User>();
