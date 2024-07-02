@@ -37,7 +37,38 @@ namespace HelloItQuantum.ViewModels
 
         public HotkeysViewModel()
         {
-            act = act = (1, "Изучать программирование - значит уметь выполнять различные действия на компьютере с помощью клавиатуры", 1);
+            string directory = Path.GetDirectoryName(Path.GetDirectoryName(Path.GetDirectoryName(Path.GetDirectoryName(AppDomain.CurrentDomain.BaseDirectory))));
+            switch (CurrentUser.GameHotkeys)
+            {
+                case 20:
+                    {
+                        act = (6, "Ты молодец. Знаешь ли ты, как с помощью клавиатуры скопировать текст?", 2);
+                        path = $"{directory}\\Assets\\HotkeysAudio\\voice6.wav";
+                        TextShowAct = "2/5";
+                    }
+                    break;
+                case 40:
+                    {
+                        act = (9, "Отлично справляешься. Знаешь ли ты, как с помощью клавиатуры вставить скопированный текст?", 2);
+                        path = $"{directory}\\Assets\\HotkeysAudio\\voice11.wav";
+                        TextShowAct = "3/5";
+                    }
+                    break;
+                case 60:
+                    {
+                        act = (12, "Почти конец! Знаешь ли ты, как стереть символ спереди курсора?", 2);
+                        path = $"{directory}\\Assets\\HotkeysAudio\\voice15.wav";
+                        TextShowAct = "4/5";
+                    }
+                    break;
+                case 80:
+                    {
+                        act = (15, "И мой последний вопрос. Знаешь ли ты, как закрыть приложение, в котором ты сейчас находишься, с помощью клавиш?", 2);
+                        path = $"{directory}\\Assets\\HotkeysAudio\\voice19.wav";
+                        TextShowAct = "5/5";
+                    } break;
+                default: act = act = (1, "Изучать программирование - значит уметь выполнять различные действия на компьютере с помощью клавиатуры", 1); break;
+            }
             ParsAct();
         }
 

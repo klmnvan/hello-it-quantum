@@ -15,11 +15,5 @@ namespace HelloItQuantum.Models
 		public int GameCreateFriend { get; set; }
 		public int GameLabyrinth { get; set; }
 
-		public User()
-		{
-			GameHotkeys = 0;
-            GameCreateFriend = 0;
-            GameLabyrinth = 0;
-        }
 	}
 }

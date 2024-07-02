@@ -23,7 +23,7 @@ namespace HelloItQuantum.ViewModels
 		static GameCreateFriendViewModel? gameCreateFriendVM;
 		public static GameCreateFriendViewModel GameCreateFriendVM { get => gameCreateFriendVM; set => gameCreateFriendVM = value; }
 
-		static HotkeysViewModel hotkeysVM = new HotkeysViewModel();
+		static HotkeysViewModel hotkeysVM;
         public static HotkeysViewModel HotkeysVM { get => hotkeysVM; set => hotkeysVM = value; }
         
         static LabyrinthViewModel labyrinthVM = new LabyrinthViewModel();

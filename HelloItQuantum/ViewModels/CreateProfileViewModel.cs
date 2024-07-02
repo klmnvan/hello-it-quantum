@@ -27,7 +27,10 @@ namespace HelloItQuantum.ViewModels
             newUser.Nickname = Nickname;
             newUser.Name = Name;
             newUser.Surname = Name;
-            if(WorkWithFile.IsWriteUserInFile(newUser))
+            newUser.GameHotkeys = 0;
+            newUser.GameCreateFriend = 0;
+            newUser.GameLabyrinth = 0;
+            if (WorkWithFile.IsWriteUserInFile(newUser))
             {
                 AuthVM = new AuthViewModel();
                 PageSwitch.View = new AuthView();

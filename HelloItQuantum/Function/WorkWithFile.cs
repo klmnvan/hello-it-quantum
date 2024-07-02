@@ -1,4 +1,5 @@
-﻿using HelloItQuantum.Models;
+﻿using DynamicData;
+using HelloItQuantum.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -64,8 +65,14 @@ namespace HelloItQuantum.Function
 		static public void UpdateValueGameProgress(int game, int value, User currentUser)
 		{
             List<User>? users = GetAllUsers();
-			users.Remove(currentUser);
-			if (game == 1) currentUser.GameHotkeys = value;
+            users.Remove(users.FirstOrDefault(it => it.Nickname == currentUser.Nickname));
+			if (game == 1)
+			{
+                if (currentUser.GameHotkeys < value)
+                {
+                    currentUser.GameHotkeys = value;
+                }
+			}
 			if (game == 2) currentUser.GameLabyrinth = value;
 			if (game == 3) currentUser.GameCreateFriend = value;
             users.Add(currentUser);
