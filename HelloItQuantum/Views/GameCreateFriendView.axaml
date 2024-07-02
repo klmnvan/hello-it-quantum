@@ -28,7 +28,7 @@
 	</UserControl.Styles>
 
 		<Panel Background="#006838">
-			<Grid ColumnDefinitions="auto, auto" RowDefinitions="*, auto" Margin="5 20" HorizontalAlignment="Center">
+			<Grid ColumnDefinitions="auto, auto" RowDefinitions="*, auto" Margin="10 20" HorizontalAlignment="Center">
 
 				<Grid Grid.Column="0" Grid.Row="0" ColumnDefinitions="60, 200, 20, 140, 20, 300, 40" RowDefinitions="auto, 10, *">
 
@@ -96,6 +96,9 @@
 						Margin="0 30"
 						Background="{Binding GameCreateFriendVM.BtnColor}"/>
 			</Grid>
+			<Button Command="{Binding GameCreateFriendVM.GoBack}" Width="50" Height="50" VerticalAlignment="Top" CornerRadius="10000" Padding="1" Margin="10 20">
+				<Image Source="/Assets/КнопкаНазад.png"/>
+			</Button>
 		</Panel>
 
 	

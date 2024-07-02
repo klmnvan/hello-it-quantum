@@ -1,6 +1,4 @@
-using Avalonia.Controls.ApplicationLifetimes;
 using HelloItQuantum.Views;
-using Avalonia.Controls;
 
 namespace HelloItQuantum.ViewModels
 {

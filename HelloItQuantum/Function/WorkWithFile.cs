@@ -61,20 +61,16 @@ namespace HelloItQuantum.Function
 			return true;
 		}
 
-
 		static public void UpdateValueGameProgress(int game, int value, User currentUser)
 		{
             List<User>? users = GetAllUsers();
             users.Remove(users.FirstOrDefault(it => it.Nickname == currentUser.Nickname));
-			if (game == 1)
+			switch (game)
 			{
-                if (currentUser.GameHotkeys < value)
-                {
-                    currentUser.GameHotkeys = value;
-                }
+				case 1: currentUser.GameHotkeys = currentUser.GameHotkeys < value ? value : currentUser.GameHotkeys; break;
+				case 2: currentUser.GameLabyrinth = value; break;
+				case 3: currentUser.GameCreateFriend = value; break;
 			}
-			if (game == 2) currentUser.GameLabyrinth = value;
-			if (game == 3) currentUser.GameCreateFriend = value;
             users.Add(currentUser);
             using (StreamWriter writer = new StreamWriter(filePath, false))
             {

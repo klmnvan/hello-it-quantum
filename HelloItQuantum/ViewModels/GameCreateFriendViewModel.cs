@@ -1,7 +1,5 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Drawing.Printing;
-using System.Xml.Linq;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.Shapes;
@@ -22,6 +20,7 @@ namespace HelloItQuantum.ViewModels
 			{ 2, Color.Parse("#B21E22") },
 			{ 3, Color.Parse("#006838") }
 		};
+		public void GoBack() => PageSwitch.View = new PlaySectionView();
 
 		#region Object and Property for Xaml
 		ObservableCollection<FriendElement> listElements = new ObservableCollection<FriendElement>();
@@ -72,15 +71,20 @@ namespace HelloItQuantum.ViewModels
 
 		public void ClickCreateFriend()
 		{
-			if (btnContent == "янгдюрэ")
+			if (btnContent == "янгдюрэ" && PChildrens.Children.Count > 1)
 			{
+				WorkWithFile.UpdateValueGameProgress(3, 100, CurrentUser);
 				IsVisibleHello = true;
-				BtnContent = "бширх";
+				BtnContent = "гюмнбн";
 				BtnColor = new SolidColorBrush(Color.Parse("#F26527"));
 			}
-			else
+			else if (btnContent == "гюмнбн")
 			{
-				PageSwitch.View = new PlaySectionView();
+				IsVisibleHello = false;
+				BtnContent = "янгдюрэ";
+				BtnColor = new SolidColorBrush(Color.Parse("#7CBE41"));
+				PChildrens.Children.Clear();
+				ListElements.Clear();
 			}
 		}
 

@@ -20,7 +20,7 @@ namespace HelloItQuantum.ViewModels
         static PlaySectionViewModel? playSectionVM;
 		public static PlaySectionViewModel PlaySectionVM { get => playSectionVM; set => playSectionVM = value; }
 
-		static GameCreateFriendViewModel? gameCreateFriendVM;
+		static GameCreateFriendViewModel gameCreateFriendVM = new GameCreateFriendViewModel();
 		public static GameCreateFriendViewModel GameCreateFriendVM { get => gameCreateFriendVM; set => gameCreateFriendVM = value; }
 
 		static HotkeysViewModel hotkeysVM;

@@ -13,19 +13,11 @@ namespace HelloItQuantum.ViewModels
 
         public void GoLabyrinth()
         {
-
             PageSwitch.View = new LabyrinthView();
         }
 
-        public void GoCreateFriend()
-        {
-			GameCreateFriendVM = new GameCreateFriendViewModel();
-			PageSwitch.View = new GameCreateFriendView();
-        }
-
-        public void GoBack()
-        {
-            PageSwitch.View = new HomeView();
-        }
+        public void GoCreateFriend() => PageSwitch.View = new GameCreateFriendView();
+   
+        public void GoBack() => PageSwitch.View = new HomeView();
     }
 }
